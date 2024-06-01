@@ -1,4 +1,4 @@
-import image from "../assets/5.png";
+import image from "../assets/2.jpg";
 import Hadding from "./Hadding";
 import Card from "./Card";
 import { MdOutlineAlbum } from "react-icons/md";

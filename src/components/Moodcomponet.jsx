@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import image from "../assets/1.png";
 import { PiPlaylist } from "react-icons/pi";
-import Hadding from "./Hadding";
+
 const Moodcomponet = ({ mood }) => {
   return (
     <Link className="w-[180px]  hover:shadow-sm hover:shadow-purple-500 mt-4  m-2 p-1 flex flex-col justify-center items-center pt-4 h-full bg-[#1F1F1F] ">

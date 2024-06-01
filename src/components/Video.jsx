@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import image from "../assets/2.jpg";
+import image from "../assets/3.png";
 import Hadding from "./Hadding";
 
 import Videocomponent from "./Videocomponent";
@@ -30,7 +30,7 @@ const Video = () => {
         />
         <div>
           <Link className="w-[85px] hover:text-purple-500 h-[90px] flex justify-center items-center flex-col   ">
-            <FaCirclePlus size={"63px"}  /> <h3>View All</h3>
+            <FaCirclePlus size={"63px"} /> <h3>View All</h3>
           </Link>
         </div>
       </div>

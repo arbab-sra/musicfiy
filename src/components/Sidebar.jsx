@@ -28,7 +28,7 @@ const Sidebar = () => {
             </Link>
           </div>
           <div className="w-[100%] mb-[4px] mt-[4px] h-[50px] text-white text-2xl  transition-all ease-in hover:border-[1px] hover:bg-[#EE10B0] flex justify-start rounded-md p-2 gap-1 items-center">
-            <Link className=" flex justify-center items-center" href="/">
+            <Link to={"/discover"} className=" flex justify-center items-center" href="/">
               <MdOutlineExplore /> Discover
             </Link>
           </div>

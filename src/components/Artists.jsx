@@ -1,7 +1,7 @@
 import Artistcard from "./Artistcard";
 import Hadding from "./Hadding";
 import image from "../assets/3.png";
-import { IoIosAddCircle } from "react-icons/io";
+
 import { Link } from "react-router-dom";
 import { FaCirclePlus } from "react-icons/fa6";
 const Artists = () => {

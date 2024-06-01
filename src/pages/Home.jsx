@@ -17,7 +17,7 @@ const Home = () => {
         <Sidebar />
       </div>
 
-      <div  className="ml-auto h-full mr-auto">
+      <div className="ml-auto h-full mr-auto">
         <Navbar />
         <hr />
         <Crasul />
@@ -39,7 +39,6 @@ const Home = () => {
         <Joinplatform />
         <hr />
       </div>
-      
     </div>
   );
 };

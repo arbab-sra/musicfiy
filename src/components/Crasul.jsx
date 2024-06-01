@@ -5,7 +5,7 @@ import '../index.css'
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import img from '../assets/crasul.png'
+import img from  '../assets/crasul.png'
 import img1 from '../assets/1.png'
 import img2 from '../assets/2.jpg'
 import img3 from '../assets/3.png'

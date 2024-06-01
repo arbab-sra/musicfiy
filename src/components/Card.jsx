@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 
-
  const Card = ({image ,icon ,title=" whatever it takes" , discription="Adlek ladfdasdjskjf dkajsfhf"}) => {
   return (
     <Link className="w-[180px] hover:shadow-sm hover:shadow-purple-500  m-2 p-1 flex flex-col justify-center items-center pt-4 h-full bg-[#1F1F1F] ">

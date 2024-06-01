@@ -91,8 +91,15 @@ const Tranding = () => {
         );
       })}
       <div className="w-[216px] bg-black flex mb-10 transition-all ease-in-out  hover:shadow-pink-500 hover:shadow-md cursor-pointer hover:translate-x-[2px] gap-3 justify-center items-center rounded-lg m-4 ml-auto mr-auto h-[63px]  ">
-        <div className="text-white text-2xl h-[38px]  flex justify-center items-center w-[26px]"><strong><IoAdd/></strong></div>
-        <div className="text-white text-xl h-[38px]  flex justify-center items-center w-[88px]"> <strong >View All</strong></div>
+        <div className="text-white text-2xl h-[38px]  flex justify-center items-center w-[26px]">
+          <strong>
+            <IoAdd />
+          </strong>
+        </div>
+        <div className="text-white text-xl h-[38px]  flex justify-center items-center w-[88px]">
+          {" "}
+          <strong>View All</strong>
+        </div>
       </div>
     </div>
   );
