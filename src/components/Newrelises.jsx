@@ -8,7 +8,7 @@ import { IoMusicalNotesOutline } from "react-icons/io5";
 
 const Newrelises = () => {
   return (
-    <div className="flex justify-center items-center w-[1060px] mb-6 overflow-hidden ">
+    <div className="flex justify-center items-center w-[1060px] mt-6 mb-6 overflow-hidden ">
     <div className="cardsparant flex justify-between relative gap-1 w-full items-center">
       <div className="w-[92%] pr-8 pl-9  overflow-hidden ">
         <Hadding name={"New Release"} lastname={"Song"} />

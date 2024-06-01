@@ -7,7 +7,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 const Album = () => {
   return (
     <div className="h-[330px] w-[1060px]  mb-14 overflow-hidden ">
-      <Hadding name={"Album"} lastname={"List"} />
+      <Hadding  name={"Album"} lastname={"List"}  />
       <div className="mt-5 flex  justify-between items-center">
         <Card
           image={image}
