@@ -34,12 +34,12 @@ const Crasul = () => {
         className="mySwiper"
       >
         
-        <SwiperSlide><img src={img} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={img1} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={img2} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={img3} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={img4} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={img5} alt="" /></SwiperSlide>
+        <SwiperSlide><img  className="contrast-150" src={img} alt="" /></SwiperSlide>
+        <SwiperSlide><img  className="contrast-150" src={img1} alt="" /></SwiperSlide>
+        <SwiperSlide><img className="contrast-150" src={img2} alt="" /></SwiperSlide>
+        <SwiperSlide><img className="contrast-150" src={img3} alt="" /></SwiperSlide>
+        <SwiperSlide><img className="contrast-150" src={img4} alt="" /></SwiperSlide>
+        <SwiperSlide><img className="contrast-150" src={img5} alt="" /></SwiperSlide>
         
         
       </Swiper>

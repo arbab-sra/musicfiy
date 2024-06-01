@@ -12,7 +12,7 @@ import { BiSolidPlaylist } from "react-icons/bi";
 import { FaSignOutAlt } from "react-icons/fa";
 const Sidebar = () => {
   return (
-    <div className="w-[270px]  p-[20px] h-[3810px] overflow-hidden bg-[#0E1920]">
+    <div className="w-[270px]  p-[20px] h-[4360px] overflow-hidden bg-[#0E1920]">
       <div className="logo w-[166px] h-[63px] ">
         <h2 className="bg-gradient-to-r text-[30px]  md:text-[40px] font-semibold text-center from-[#EE10B0] to-[#0E9EEF] inline-block text-transparent bg-clip-text">
           Musicify

@@ -2,7 +2,7 @@ import { CiSearch } from "react-icons/ci";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
-    <div className="overflow-hidden h-[76px] p-3 bg-gradient-to-tr from-[#412C3A] to-[#533248]  flex justify-center  gap-1 items-center  ">
+    <div className="overflow-hidden h-[80px] p-3 bg-gradient-to-tr from-[#412C3A] to-[#533248]  flex justify-center  gap-1 items-center  ">
       <div className="serch h-[30px] rounded-lg bg-[#656565] w-[360px]">
         <div className="flex h-full  w-full justify-center items-center">
           <CiSearch size={"25px"} className="" />

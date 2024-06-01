@@ -1,23 +1,32 @@
-
+import { FaCirclePlus } from "react-icons/fa6";
+import image from "../assets/Rectangle.png";
+import Card from "./Card";
+import Hadding from "./Hadding";
+import { Link } from "react-router-dom";
 import { IoMusicalNotesOutline } from "react-icons/io5";
 const Weeklytop = () => {
   return (
-    <div className="">
-        <div>
-            <h2 className="w-[265px] h-[50px] text-white font-serif text-3xl text-center p-2 bg-gray-500 ">Weekly Top <span className="text-[#EE10B0]">Songs</span></h2>
-        </div>
-        <div className="flex justify-center items-center">
-            <div className="w-[180px] p-2 flex flex-col justify-center items-center h-[220px] bg-red-600">
-                <div className="w-[150px] h-[150px] bg-black"></div>
-                <div className="songtitle mr-5 w-[128px] h-[25px] mt-[6px] mb-[6px] bg-indigo-700"> <h4 className="text-start text-white capitalize"> whatever it takes</h4></div>
-                <div className="flex justify-center gap-[70px] items-center">
-                    <div className="capitalize w[88] h-[19px] ">Adle</div>
-                    <div className=""><IoMusicalNotesOutline/></div>
-                </div>
-            </div>
-        </div>
-    </div>
-  )
-}
+    <div className="flex justify-center items-center w-[1060px] mb-7 overflow-hidden ">
+      <div className="cardsparant flex justify-between relative gap-1 w-full items-center">
+        <div className="w-[92%] pr-8 pl-9  overflow-hidden ">
+          <Hadding name={"Weekly Top"} lastname={"Song"} />
+          <div className="flex mt-9 m-auto  mb-9 justify-center items-center w-full  h-[245px]  ">
+          <Card image={image} icon={<IoMusicalNotesOutline color="white" size={"15px"} />} />
+          <Card image={image} icon={<IoMusicalNotesOutline color="white" size={"15px"} />} />
+          <Card image={image} icon={<IoMusicalNotesOutline color="white" size={"15px"} />} />
+          <Card image={image} icon={<IoMusicalNotesOutline color="white" size={"15px"} />} />
+          <Card image={image} icon={<IoMusicalNotesOutline color="white" size={"15px"} />} />
 
-export default Weeklytop
+          </div>
+        </div>
+        <div className=" absolute h-full  flex justify-center items-center top-0 right-0">
+          <Link className="w-[85px] h-[90px] flex justify-center items-center flex-col hover:text-purple-500  ">
+            <FaCirclePlus size={"63px"}  /> <h3>View All</h3>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Weeklytop;
