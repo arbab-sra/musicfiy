@@ -4,10 +4,10 @@ import image from "../assets/3.png";
 
 import { Link } from "react-router-dom";
 import { FaCirclePlus } from "react-icons/fa6";
-const Artists = () => {
+const Artists = ( {firstname, lastname}) => {
   return (
     <div className="w-[1060px] mb-14 h-[262px]">
-      <Hadding name={"Popular"} lastname={"Artists"} />
+      <Hadding name={firstname} lastname={lastname} />
       <div className="flex justify-center items-center w-[1060px]  p-3 h-[262px]">
         <div className="w-full h-full  p-1 overflow-hidden  gap-5 flex justify-center items-center">
           <Artistcard image={image} name={"Artist"} />

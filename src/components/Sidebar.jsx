@@ -16,15 +16,15 @@ const Sidebar = () => {
   const buttonMap = {
     "/": ".btn1",
     "/discover": ".btn2",
-    "/albums": ".btn2",
-    "/artists": ".btn2",
-    "/recentlyplyed": ".btn2",
-    "/mostlyplayed": ".btn2",
-    "/yourplaylist": ".btn2",
-    "/yourfavorite": ".btn2",
-    "/addtoplaylist": ".btn2",
-    "/settings": ".btn2",
-    "/logout": ".btn2",
+    "/albums": ".btn3",
+    "/artists": ".btn4",
+    "/recentlyplyed": ".btn5",
+    "/mostlyplayed": ".btn6",
+    "/yourplaylist": ".btn7",
+    "/yourfavorite": ".btn8",
+    "/addtoplaylist": ".btn9",
+    "/settings": ".btn10",
+    "/logout": ".btn11",
   };
   const location = useLocation();
   const buttonClass = buttonMap[location.pathname];

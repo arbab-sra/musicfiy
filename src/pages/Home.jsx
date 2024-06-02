@@ -24,13 +24,13 @@ const Home = () => {
         <hr />
         <Crasul />
         <hr />
-        <Weeklytop />
+        <Weeklytop firsthadding="Weekly" secondhadding="Top" />
         <hr />
         <Newrelises />
         <hr />
         <Tranding />
         <hr />
-        <Artists />
+        <Artists firstname="Popular " lastname="Artists" />
         <hr />
         <Album />
         <hr />

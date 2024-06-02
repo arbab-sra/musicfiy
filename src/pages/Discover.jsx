@@ -21,7 +21,7 @@ const Discover = () => {
         <hr />
         <Mood />
         <hr />
-        <Artists />
+        <Artists firstname="Popular " lastname="Artists" />
         <hr />
         <Video />
         <hr />

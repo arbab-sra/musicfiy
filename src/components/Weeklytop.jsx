@@ -4,12 +4,12 @@ import Card from "./Card";
 import Hadding from "./Hadding";
 import { Link } from "react-router-dom";
 import { IoMusicalNotesOutline } from "react-icons/io5";
-const Weeklytop = () => {
+const Weeklytop = ({secondhadding ,firsthadding}) => {
   return (
     <div className="flex justify-center items-center w-[1060px] mb-7 overflow-hidden ">
       <div className="cardsparant flex justify-between relative gap-1 w-full items-center">
         <div className="w-[92%] pr-8 pl-9  overflow-hidden ">
-          <Hadding name={"Weekly Top"} lastname={"Song"} />
+          <Hadding name={firsthadding} lastname={secondhadding} />
           <div className="flex mt-9 m-auto  mb-9 justify-center items-center w-full  h-[245px]  ">
           <Card image={image} icon={<IoMusicalNotesOutline color="white" size={"15px"} />} />
           <Card image={image} icon={<IoMusicalNotesOutline color="white" size={"15px"} />} />
