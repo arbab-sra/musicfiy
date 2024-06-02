@@ -1,4 +1,3 @@
-
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import Musicgenra from "../components/discovercomponents/Musicgenra";
@@ -6,8 +5,8 @@ import Artists from "../components/Artists";
 import Video from "../components/discovercomponents/Video";
 import Newrelises from "../components/Newrelises";
 import Album from "../components//Album";
-import Mood from "../components/Mood"
-import JoinPlatform from "../components/Joinplatform"
+import Mood from "../components/Mood";
+import JoinPlatform from "../components/Joinplatform";
 const Discover = () => {
   return (
     <div className="flex m-auto h-[3750px] min-w-[1400px] max-w-[1440px] overflow-x-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
@@ -18,21 +17,21 @@ const Discover = () => {
       <div className="ml-auto h-full mr-auto">
         <Navbar />
         <hr />
-        <Musicgenra/>
+        <Musicgenra />
         <hr />
         <Mood />
         <hr />
-        <Artists/>
+        <Artists />
         <hr />
-        <Video/>
+        <Video />
         <hr />
-        <Newrelises/>
+        <Newrelises />
         <hr />
-        <Album/>
+        <Album />
         <hr />
-        <Mood/>
+        <Mood />
         <hr />
-        <JoinPlatform/>
+        <JoinPlatform />
         <hr />
       </div>
     </div>

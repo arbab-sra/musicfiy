@@ -9,12 +9,10 @@ import Album from "../components/Album";
 import Mood from "../components/Mood";
 import Video from "../components/Video";
 import Joinplatform from "../components/Joinplatform";
-import { useLocation } from "react-router-dom";
+
 
 const Home = () => {
-  const location = useLocation();
-  if (location.pathname === "/") {
-  }
+ 
   return (
     <div className="flex m-auto h-[4390px] min-w-[1400px] max-w-[1440px] overflow-x-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
       <div className="h-full">
