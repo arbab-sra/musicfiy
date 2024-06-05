@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
@@ -63,13 +62,19 @@ const Joinplatform = () => {
             </div>
             <div className="w-full gap-4 h-[75%] flex justify-start items-center flex-col">
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Song</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Song
+                </h4>
               </Link>
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Roadio</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Roadio
+                </h4>
               </Link>
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Podcast</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Podcast
+                </h4>
               </Link>
             </div>
           </div>
@@ -81,19 +86,29 @@ const Joinplatform = () => {
             </div>
             <div className="w-full gap-4 h-[75%] flex justify-start items-center flex-col">
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Explore</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Explore
+                </h4>
               </Link>
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Artists</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Artists
+                </h4>
               </Link>
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Playlist</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Playlist
+                </h4>
               </Link>
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Albums</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Albums
+                </h4>
               </Link>
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Tranding</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Tranding
+                </h4>
               </Link>
             </div>
           </div>
@@ -104,38 +119,49 @@ const Joinplatform = () => {
               <div className="w-[80%] h-[2px] bg-white"></div>
             </div>
             <div className="w-full gap-4 h-[75%]  flex justify-start items-center flex-col">
-              <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">About</h4>
+              <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                About
+              </h4>
               <Link></Link>
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Policy</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Policy
+                </h4>
               </Link>
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Socal media</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Socal media
+                </h4>
               </Link>
               <Link>
-                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">Support</h4>
+                <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
+                  Support
+                </h4>
               </Link>
             </div>
           </div>
         </div>
         <div className="connectus w-1/4  gap-6 flex justify-between  pb-6 items-center flex-col h-full  ">
           <div className="w-full h-[50%]  flex justify-center items-center">
-          <Link to={'/'} className="bg-gradient-to-r text-[30px]  md:text-[40px] font-semibold text-center from-[#EE10B0] to-[#0E9EEF] inline-block text-transparent bg-clip-text">
-          Musicify
-        </Link>
+            <Link
+              to={"/"}
+              className="bg-gradient-to-r text-[30px]  md:text-[40px] font-semibold text-center from-[#EE10B0] to-[#0E9EEF] inline-block text-transparent bg-clip-text"
+            >
+              Musicify
+            </Link>
           </div>
           <div className=" w-full flex justify-between  h-[80%]  items-center ">
             <Link className=" w-1/4  flex justify-center items-center h-[50%]">
-              <FaFacebook size={'40px'}/>
-            </Link  >
-            <Link className=" w-1/4  flex justify-center items-center h-[50%]">
-              <FaInstagramSquare size={'40px'}/>
+              <FaFacebook className="hover:text-[#EE10b0]" size={"40px"} />
             </Link>
             <Link className=" w-1/4  flex justify-center items-center h-[50%]">
-              <AiFillTwitterCircle size={'40px'}/>
+              <FaInstagramSquare className="hover:text-[#EE10b0]" size={"40px"} />
             </Link>
             <Link className=" w-1/4  flex justify-center items-center h-[50%]">
-              <MdEmail size={'40px'}/>
+              <AiFillTwitterCircle  className="hover:text-[#EE10b0]"size={"40px"} />
+            </Link>
+            <Link className=" w-1/4  flex justify-center items-center h-[50%]">
+              <MdEmail  className="hover:text-[#EE10b0]"size={"40px"} />
             </Link>
           </div>
         </div>

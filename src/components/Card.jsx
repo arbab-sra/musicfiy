@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 
- const Card = ({image ,icon ,title=" whatever it takes" , discription="Adlek ladfdasdjskjf dkajsfhf"}) => {
+ const Card = ({image ,icon ,title ,discription ,id}) => {
   return (
-    <Link className="w-[180px] hover:shadow-sm hover:shadow-purple-500  m-2 p-1 flex flex-col justify-center items-center pt-4 h-full bg-[#1F1F1F] ">
+    <Link to={`/song/${id}`} className="w-[180px] hover:shadow-sm hover:shadow-purple-500  m-2 p-1 flex flex-col justify-center items-center pt-4 h-full bg-[#1F1F1F] ">
     <div className="w-[150px] h-[150px] border overflow-hidden  ">
-      <img className=' object-fill contrast-150' src={image} alt="" />
+      <img className=' object-fill overflow-hidden w-full h-full contrast-150' src={image} alt="" />
     </div>
     <div className="songtitle m-auto w-[90%]  h-[25px] pr-[2px] mt-[9px] mb-[6px] ">
       {" "}

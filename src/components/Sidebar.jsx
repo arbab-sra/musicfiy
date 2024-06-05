@@ -10,9 +10,42 @@ import { CgPlayListAdd } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
 import { BiSolidPlaylist } from "react-icons/bi";
 import { FaSignOutAlt } from "react-icons/fa";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { BACKEND_URL } from "../../context";
+import toast from "react-hot-toast";
+import Lodingcomponent from "./Loding";
 const Sidebar = () => {
+
+  const [loding ,setLoading] = useState(false)
+  const logout = async() => {
+   try {
+    setLoading(true);
+     const res = await axios.get(`${BACKEND_URL}/api/user/logout`,{
+      headers: {
+        Authorization: `${localStorage.getItem("token")}`,
+      }
+     });
+     console.log(res)
+     if (res){
+       toast.success("Logout successfully");
+       console.log(res);
+       localStorage.clear("user");
+       localStorage.clear("username");
+       localStorage.clear("profilpic");
+       localStorage.clear("token");
+       window.location.reload();
+       setLoading(false);
+     }
+   } catch (error) {
+    setLoading(false);
+    console.log(error.message);
+    toast.error(error.message);
+    if (error.message === "Request failed with status code 401"){
+      window.location.reload();
+    }
+   }
+  }
   const buttonMap = {
     "/": ".btn1",
     "/discover": ".btn2",
@@ -33,6 +66,7 @@ const Sidebar = () => {
       document.querySelector(buttonClass).style.backgroundColor = "#EE10B0";
     }
   }, [buttonClass]);
+  if(loding) return <Lodingcomponent/>
   return (
     <div className="w-[270px] p-[20px] min-h-[3000px] h-full overflow-hidden bg-[#0E1920]">
       <Link to={"/"} className="logo w-[166px] h-[63px] ">
@@ -138,9 +172,14 @@ const Sidebar = () => {
             </Link>
           </div>
           <div className="w-[100%] mb-[4px] mt-[4px] h-[50px] text-white text-2xl btn11 transition-all ease-in hover:border-[1px] hover:bg-[#EE10B0] flex justify-start rounded-md p-2 gap-1 items-center">
-            <Link to={"/logout"} className=" flex justify-center items-center">
-              <FaSignOutAlt /> Logout
-            </Link>
+            {localStorage.getItem("user") && (
+              <button
+                onClick={logout}
+                className=" flex justify-center items-center"
+              >
+                <FaSignOutAlt /> Logout
+              </button>
+            )}
           </div>
         </div>
       </div>
