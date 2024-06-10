@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./components/authcomponts/Signup";
 import Login from "./components/authcomponts/Login";
 import { Toaster } from "react-hot-toast";
-import Try from "./components/Try";
+
+import SongPlay from "./pages/SongPlay";
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
           <Route path="/artists" element={<Artists />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/t" element={<Try />} />
+          <Route path="song/:id/" element={<SongPlay />} />
         </Routes>
       </Router>
     </>

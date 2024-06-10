@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
- const Card = ({image ,icon ,title ,discription ,id}) => {
+ const Card = ({image ,icon ,title ,discription ,id }) => {
   return (
     <Link to={`/song/${id}`} className="w-[180px] hover:shadow-sm hover:shadow-purple-500  m-2 p-1 flex flex-col justify-center items-center pt-4 h-full bg-[#1F1F1F] ">
     <div className="w-[150px] h-[150px] border overflow-hidden  ">
