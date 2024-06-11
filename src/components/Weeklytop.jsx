@@ -1,5 +1,5 @@
 import { FaCirclePlus } from "react-icons/fa6";
-import { WeeklyTopSongContext } from "../constext/useContext";
+import { Allsong } from "../constext/useContext";
 
 import Card from "./Card";
 import Hadding from "./Hadding";
@@ -8,15 +8,15 @@ import { IoMusicalNotesOutline } from "react-icons/io5";
 import { useContext } from "react";
 
 const Weeklytop = ({ secondhadding, firsthadding }) => {
-  const { song } = useContext(WeeklyTopSongContext);
+  const { weeklytop } = useContext(Allsong);
   return (
     <div className="flex justify-center items-center w-[1060px] mb-7 overflow-hidden ">
       <div className="cardsparant flex justify-between relative gap-1 w-full items-center">
         <div className="w-[92%] pr-8 pl-9  overflow-hidden ">
           <Hadding name={firsthadding} lastname={secondhadding} />
           <div className="flex mt-9 m-auto  mb-9 justify-center items-center w-full  h-[245px]  ">
-            {song &&
-              song.map((e, index) => {
+            {weeklytop &&
+              weeklytop.map((e, index) => {
                 if (index < 5) {
                   {
                     return (
