@@ -23,7 +23,7 @@ const Joinplatform = () => {
               <Link className="text-[#56bce4] hover:border-b-2 ">
                 Login Button
               </Link>
-              . <bold>Created by <i className="text-2xl hover:border-b-2 text-[#38f7fb]">Arbab</i></bold> 
+              . <strong>Created by <i className="text-2xl hover:border-b-2 text-[#38f7fb]">Arbab</i></strong> 
             </p>
           </div>
           <div className="flex justify-center  w-1/2 h-full   items-center ">
