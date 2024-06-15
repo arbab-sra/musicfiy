@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BACKEND_URL } from "../../context";
-import { resolvePath } from "react-router-dom";
+
 
 export const UseWeekyTopSongs = async () => {
   try {
@@ -14,6 +14,7 @@ export const UseWeekyTopSongs = async () => {
       return data.data;
     }
   } catch (error) {
+    console.log(error.message);
     return error.message;
   }
 };
@@ -26,7 +27,7 @@ export const UseNewReliseSong = async () => {
       },
     });
     if (data.status === 200) {
-      return data;
+      return data.data;
     }
   } catch (error) {
     return error.message;
@@ -35,13 +36,13 @@ export const UseNewReliseSong = async () => {
 
 export const UseTrandingsong = async () => {
   try {
-    const data = await axios.get(`${BACKEND_URL}/api//songs/tranding`, {
+    const data = await axios.get(`${BACKEND_URL}/api/songs/tranding`, {
       headers: {
         Authorization: `${localStorage.getItem("token")}`,
       },
     });
     if (data.status === 200) {
-      return data;
+      return data.data;
     }
   } catch (error) {
     return error.message;
@@ -50,13 +51,13 @@ export const UseTrandingsong = async () => {
 
 export const UsePopularArtist = async () => {
   try {
-    const data = await axios.get(`${BACKEND_URL}/api//songs/topartiest`, {
+    const data = await axios.get(`${BACKEND_URL}/api/songs/topartiest`, {
       headers: {
         Authorization: `${localStorage.getItem("token")}`,
       },
     });
     if (data.status === 200) {
-      return data;
+      return data.data;
     }
   } catch (error) {
     return error.message;
@@ -71,7 +72,7 @@ export const UseTopAlbum = async () => {
       },
     });
     if (data.status === 200) {
-      return data;
+      return data.data;
     }
   } catch (error) {
     return error.message;
@@ -80,13 +81,13 @@ export const UseTopAlbum = async () => {
 
 export const UseMoodPlaylist = async () => {
   try {
-    const data = await axios.get(`${BACKEND_URL}//songs/moodplaylist`, {
+    const data = await axios.get(`${BACKEND_URL}/api/songs/moodplaylist`, {
       headers: {
         Authorization: `${localStorage.getItem("token")}`,
       },
     });
     if (data.status === 200) {
-      return data;
+      return data.data;
     }
   } catch (error) {
     return error.message;
@@ -101,7 +102,7 @@ export const UseVideo = async () => {
       },
     });
     if (data.status === 200) {
-      return data;
+      return data.data;
     }
   } catch (error) {
     return error.message;
@@ -116,9 +117,10 @@ export const UseCrasual = async () => {
       },
     });
     if (data.status === 200) {
-      return data;
+      return data.data;
     }
   } catch (error) {
     return error.message;
   }
 };
+

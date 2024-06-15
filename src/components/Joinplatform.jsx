@@ -13,7 +13,7 @@ const Joinplatform = () => {
             Join Our <span className="text-[#f1f5f7]">Platform</span>
           </h3>
         </div>
-        <div className=" mb-5 w-full flex justify-between items-center ">
+        <div className=" mb-2 w-full flex justify-between items-center ">
           <div className="w-1/2 h-full  p-4 flex  justify-center items-center">
             <p className=" text-white  text-lg opacity-85">
               You can be one of the{" "}
@@ -23,7 +23,7 @@ const Joinplatform = () => {
               <Link className="text-[#56bce4] hover:border-b-2 ">
                 Login Button
               </Link>
-              .
+              . <bold>Created by <i className="text-2xl hover:border-b-2 text-[#38f7fb]">Arbab</i></bold> 
             </p>
           </div>
           <div className="flex justify-center  w-1/2 h-full   items-center ">
@@ -149,6 +149,7 @@ const Joinplatform = () => {
             >
               Musicify
             </Link>
+            
           </div>
           <div className=" w-full flex justify-between  h-[80%]  items-center ">
             <Link className=" w-1/4  flex justify-center items-center h-[50%]">

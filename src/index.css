@@ -290,7 +290,7 @@ input[type="range"]:focus::-ms-fill-upper {
   background: #89075e;
 }
 .rotate {
-  animation: rotate 100s linear infinite ;
+  animation: rotate 500s linear infinite ;
 }
 
 

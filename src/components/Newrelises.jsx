@@ -4,10 +4,14 @@ import Hadding from "./Hadding";
 import { FaCirclePlus } from "react-icons/fa6";
 import image from "../assets/5.png";
 import { IoMusicalNotesOutline } from "react-icons/io5";
-import { useContext  } from "react";
-import {Allsong} from "../constext/useContext"
+import { useContext, useEffect, useState } from "react";
+import { Allsong } from "../constext/useContext";
 const Newrelises = () => {
-  const {} = useContext(Allsong);
+  const [songs, setsongs] = useState([]);
+  const { newRelisedsong } = useContext(Allsong);
+  useEffect(() => {
+    setsongs(newRelisedsong);
+  }, [newRelisedsong, songs]);
 
   return (
     <div className="flex justify-center items-center w-[1060px] mt-6 mb-6 overflow-hidden ">
@@ -15,26 +19,25 @@ const Newrelises = () => {
         <div className="w-[92%] pr-8 pl-9  overflow-hidden ">
           <Hadding name={"New Release"} lastname={"Song"} />
           <div className="flex mt-9 m-auto  mb-9 justify-center items-center w-full  h-[245px]  ">
-            <Card
-              image={image}
-              icon={<IoMusicalNotesOutline color="white" size={"15px"} />}
-            />
-            <Card
-              image={image}
-              icon={<IoMusicalNotesOutline color="white" size={"15px"} />}
-            />
-            <Card
-              image={image}
-              icon={<IoMusicalNotesOutline color="white" size={"15px"} />}
-            />
-            <Card
-              image={image}
-              icon={<IoMusicalNotesOutline color="white" size={"15px"} />}
-            />
-            <Card
-              image={image}
-              icon={<IoMusicalNotesOutline color="white" size={"15px"} />}
-            />
+            {songs.length &&
+              songs.map((elem, index) => {
+                console.log(elem);
+                if (index < 5) {
+                  return (
+                    <Card
+                      key={elem._id}
+                      id={elem._id}
+                      image={elem.themnail}
+                      title={elem.title}
+                      artist={elem.artist}
+                      type={"newrelisesong"}
+                      icon={
+                        <IoMusicalNotesOutline color="white" size={"15px"} />
+                      }
+                    />
+                  );
+                }
+              })}
           </div>
         </div>
         <div className=" absolute h-full  flex justify-center items-center top-0 right-0">

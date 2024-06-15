@@ -4,6 +4,7 @@ import "../index.css"
 import AudioPlayer from "../components/AudioPlayer";
 import {useParams} from "react-router-dom";
 import { useEffect } from "react";
+import Joinplatform from "../components/Joinplatform"
 const SongPlay = () => {
     const { id , } = useParams();
     console.log(id);
@@ -18,6 +19,7 @@ const SongPlay = () => {
 
       <div className="ml-auto h-full mr-auto">
         <AudioPlayer  />
+        <Joinplatform/>
       </div>
     </div>
   );

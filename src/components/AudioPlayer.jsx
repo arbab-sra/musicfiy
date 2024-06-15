@@ -9,8 +9,11 @@ import { useParams } from "react-router-dom";
 import { MdOutlineFlip } from "react-icons/md";
 import { Allsong } from "../constext/useContext";
 import { IoAdd } from "react-icons/io5";
+
 import Trandingcompont from "./Trandingcompont";
 import Hadding from "./Hadding";
+import axios from "axios";
+import { BACKEND_URL } from "../../context";
 const AudioPlayer = () => {
   const [Currentsongplay, setCurrentsongplay] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -22,10 +25,32 @@ const AudioPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef(null);
-  const { id } = useParams();
-  const { song } = useContext(Allsong);
+  const { type, id } = useParams();
+  const { weeklytop } = useContext(Allsong);
+  console.log("type", type);
+  function formatDate(inputDate) {
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
 
-  // songdata.for
+    const date = new Date(inputDate);
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    return `${month} ${day} ${year}`;
+  }
+
   const handlePlayPause = () => {
     const audio = audioRef.current;
     if (isPlaying) {
@@ -38,7 +63,6 @@ const AudioPlayer = () => {
 
   const handleTimeUpdate = () => {
     const audio = audioRef.current;
-
     setCurrentTime(audio.currentTime);
     setDuration(audio.duration);
   };
@@ -49,9 +73,24 @@ const AudioPlayer = () => {
     setCurrentTime(audio.currentTime);
   };
 
+  const songendedhandler = ()=>{
+    setCurrentsongplay(othersong[3].url);
+        setthemnail(othersong[3].themnail);
+        setviews(othersong[3].views);
+        setartiest(othersong[3].artist);
+n
+  }
+  // useEffect(() => {
+  //   const audio = audioRef.current;
+  //   if (audio && Currentsongplay) {
+  //     audio.play();
+  //     setIsPlaying(true);
+  //   }
+  // }, [Currentsongplay]);
   useEffect(() => {
-    setothersong(song);
-    song.forEach((element) => {
+    setothersong(weeklytop);
+    console.log("jkafdl", weeklytop);
+    weeklytop.forEach((element) => {
       if (element._id === id) {
         setCurrentsongplay(element.url);
         setthemnail(element.themnail);
@@ -59,18 +98,23 @@ const AudioPlayer = () => {
         setartiest(element.artist);
       }
     });
-  }, [id, song]);
+  }, [id, weeklytop]);
+  useEffect(() => {
+    axios.get(`${BACKEND_URL}/api/songs/singlesong?id=${id}`)
+  } ,[id])
+  
   return (
     <>
       <div className="flex flex-col justify-center   h-[500px] mt-4 w-[1060px]   items-center bg-[#16151595] text-white p-4 rounded-lg shadow-lg ">
         <div className="">
           <audio
+          onEnded={songendedhandler}
             ref={audioRef}
             src={Currentsongplay}
             onTimeUpdate={handleTimeUpdate}
           />
         </div>
-        <div className="w-[250px]  rotate bg-gradient-to-t from-[#953636] to-[ #363695]  p-2 bg-gradient-to-tr from-fuchsia-600 to-sky-600 h-[250px] rounded-full flex justify-center items-center   relative">
+        <div className="w-[250px] h-[250px] rotate bg-gradient-to-t from-[#953636] to-[ #363695]  p-2 bg-gradient-to-tr from-fuchsia-600 to-sky-600 h-[250px] rounded-full flex justify-center items-center   relative">
           <button
             onClick={() => setshowimg((val) => !val)}
             className=" bottom-3 right-4 z-50"
@@ -82,7 +126,7 @@ const AudioPlayer = () => {
               <img
                 src={themnail}
                 alt="Album Artwork"
-                className="w-full h-full  absolute rounded-full  "
+                className="w-full h-full contrast-125 absolute rounded-full  "
               />
             )
           ) : (
@@ -94,18 +138,31 @@ const AudioPlayer = () => {
             ></iframe>
           )}
         </div>
-        <div className="text-center w-full  h-[100px] border flex justify-between px-10 items-center   mb-4 mt-4">
+        <div className="text-center w-full  h-[100px]  flex justify-between px-10 items-center   mb-4 mt-4">
           <div>
             <p>
-              views: <span>{views}</span>
+              views:{" "}
+              <span>
+                {views > 1000 ? (views / 1000).toFixed() + " K" : views}
+              </span>
             </p>
           </div>
-          <div className=" border">
-            <h3 className="text-lg font-bold">{artiest} </h3>
+          <div className=" ">
+            <h3 className="text-2xl font-bold capitalize ">{artiest} </h3>
 
-            <p className="text-xs">Spotify</p>
+            <p className="text-xs">Musicify</p>
           </div>
-          <div>klsdafj</div>
+          <div className=" h-[100px] w-[100px] mb-8">
+            {isPlaying && (
+              <iframe
+                className=""
+                width={"100px"}
+                height={"100px"}
+                src="https://lottie.host/embed/f8b12f60-0296-441e-8b18-d9420f67c622/5C6Jm7KMUP.json"
+              ></iframe>
+            )}
+          </div>
+          {/* <div className=" mb-9"><iframe src="https://lottie.host/embed/5eb82fc0-6319-4b92-9b14-605c1dbcf658/J9D0iUdu2D.json"></iframe></div> */}
         </div>
         <div className="flex  flex-col   items-center w-full mb-4">
           <input
@@ -137,7 +194,7 @@ const AudioPlayer = () => {
           <button className=" hover:text-white text-fuchsia-700 text-2xl">
             <FaShuffle />
           </button>
-          <button className=" hover:text-white text-fuchsia-700 text-2xl">
+          <button  className=" hover:text-white text-fuchsia-700 text-2xl">
             <FaStepBackward />
           </button>
           <button
@@ -155,7 +212,12 @@ const AudioPlayer = () => {
         </div>
       </div>
       <div className="w-[1060px]  ">
-        <Hadding name={"Weekly Top"} lastname={"Song"} />
+        {type === "newrelisesong" && (
+          <Hadding name={"New Relises "} lastname={"Song"} />
+        )}
+        {type === "weeklytopsong" && (
+          <Hadding name={"Weekly Top "} lastname={"Song"} />
+        )}
         <div className=" dates w-[70%] h-[31px] ml-auto flex justify-between pl-8 pr-10  items-center">
           <div>
             <h4 className="font-sans text-white text-[15px]">Relises Date</h4>
@@ -169,6 +231,8 @@ const AudioPlayer = () => {
         </div>
         {/* trandingcompont */}
         {othersong.map((ele, index) => {
+          const date = formatDate(ele.updatedAt);
+
           return (
             <Trandingcompont
               key={ele._id}
@@ -176,8 +240,8 @@ const AudioPlayer = () => {
               rank={index + 1}
               name={ele.title}
               artistname={ele.artist}
-              relisedata={ele.releaseDate}
-              duration={1}
+              relisedata={date}
+              duration={0}
               Album={ele.title}
               tranding={ele.themnail}
             />

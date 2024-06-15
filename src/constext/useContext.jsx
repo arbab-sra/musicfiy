@@ -4,6 +4,9 @@ import {
   UseNewReliseSong,
   UseTrandingsong,
   UsePopularArtist,
+  UseTopAlbum,
+  UseVideo,
+  UseMoodPlaylist,
 } from "../customhooks/Coustum";
 
 export const Allsong = createContext("song");
@@ -13,28 +16,62 @@ export const Song = (props) => {
   const [newRelisedsong, setnewRelisedsong] = useState([]);
   const [Trandingsong, setTrandingsog] = useState([]);
   const [PopularArtist, setPopularArtist] = useState([]);
+  const [Album, setAlbum] = useState([]);
+  const [Videosong, setVideosong] = useState([]);
+  const [Moodplylist, setMoodplylist] = useState([]);
 
+  const fatchMoodplylistdata = async () => {
+    const data = await UseMoodPlaylist();
+    setMoodplylist(data);
+  };
+  const fatchVideodata = async () => {
+    const data = await UseVideo();
+    setVideosong(data);
+  };
+  const fatchAlbumdata = async () => {
+    const data = await UseTopAlbum();
+    setAlbum(data);
+  };
   const fatchPopularArtistdata = async () => {
-    const data = await UseWeekyTopSongs();
-    console.log("weeklytop song", data);
+    const data = await UsePopularArtist();
     setPopularArtist(data);
   };
   const fatchtopsongdata = async () => {
     const data = await UseWeekyTopSongs();
-    console.log("fatchtopsongdata song", data);
+  // console.log(data);
     setweeklytop(data);
   };
   const fatchTrandingssdata = async () => {
     const data = await UseTrandingsong();
-    console.log("fatchTrandingssdata song", data);
     setTrandingsog(data);
   };
 
   const fatchnewRelisedata = async () => {
     const data = await UseNewReliseSong();
-    console.log("fatchnewRelisedata", data);
     setnewRelisedsong(data);
   };
+
+  useEffect(() => {
+    try {
+      fatchMoodplylistdata();
+    } catch (error) {
+      console.log("error fatching fatchMoodplylistdata song", error.message);
+    }
+  }, []);
+  useEffect(() => {
+    try {
+      fatchVideodata();
+    } catch (error) {
+      console.log("error fatching fatchVideodata song", error.message);
+    }
+  }, []);
+  useEffect(() => {
+    try {
+      fatchAlbumdata();
+    } catch (error) {
+      console.log("error fatching fatchAlbumdata song", error.message);
+    }
+  }, []);
   useEffect(() => {
     try {
       fatchnewRelisedata();
@@ -66,7 +103,17 @@ export const Song = (props) => {
   }, []);
 
   return (
-    <Allsong.Provider value={{ weeklytop, newRelisedsong, Trandingsong ,PopularArtist }}>
+    <Allsong.Provider
+      value={{
+        weeklytop,
+        newRelisedsong,
+        Trandingsong,
+        PopularArtist,
+        Album,
+        Videosong,
+        Moodplylist,
+      }}
+    >
       {props.children}
     </Allsong.Provider>
   );

@@ -9,13 +9,14 @@ import { useContext } from "react";
 
 const Weeklytop = ({ secondhadding, firsthadding }) => {
   const { weeklytop } = useContext(Allsong);
+  // console.log(weeklytop);
   return (
     <div className="flex justify-center items-center w-[1060px] mb-7 overflow-hidden ">
       <div className="cardsparant flex justify-between relative gap-1 w-full items-center">
         <div className="w-[92%] pr-8 pl-9  overflow-hidden ">
           <Hadding name={firsthadding} lastname={secondhadding} />
           <div className="flex mt-9 m-auto  mb-9 justify-center items-center w-full  h-[245px]  ">
-            {weeklytop &&
+            {weeklytop.length >0 &&
               weeklytop.map((e, index) => {
                 if (index < 5) {
                   {
@@ -27,9 +28,10 @@ const Weeklytop = ({ secondhadding, firsthadding }) => {
                           <IoMusicalNotesOutline color="white" size={"15px"} />
                         }
                         title={e.title}
-                        discription={e.artist}
+                        artist={e.artist}
                         id={e._id}
                         url={e.url}
+                        type ={"weeklytopsong"}
                       />
                     );
                   }

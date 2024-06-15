@@ -12,9 +12,29 @@ const Trandingcompont = ({
   id = "Id",
   tranding,
 }) => {
+
+  function formatDate(inputDate) {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    // Parse the input date string
+    const date = new Date(inputDate);
+
+    // Extract day, month, and year
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+
+    // Format the date as "Mon DD YYYY"
+    return `${month} ${day} ${year}`;
+}
+
+// Example usage
+
+
   const [play, setplay] = useState('red');
   // const navigate = useNavigate()
   const { id: prams } = useParams();
+ 
   useEffect(()=>{
     if (id == prams) {
       setplay("2px solid #00DDEB")
