@@ -54,10 +54,18 @@ const Signup = () => {
       }
     } catch (error) {
       setLoading(false);
-      console.log(error.message);
-if (error.response.status === 400 || error.response.status === 401){
-  toast.error(error.response.data.error)
-}
+      console.log("signup error", error.message);
+      if (
+        error.response.status === 400 ||
+        error.response.status === 401 ||
+        error.response.status === 500
+      ) {
+        toast.error(error.response.data.error);
+      }
+      if (error.response.status === 403) {
+        toast.error("User already exists");
+        navigate("/login");
+      }
     }
   };
   if (loding) {
@@ -111,13 +119,13 @@ if (error.response.status === 400 || error.response.status === 401){
             />
             <button
               type="submit"
-              className="w-full h-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="w-full h-12  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Sign Up
             </button>
-            <Link to="/login" className="text-fuchsia-300 text-sm">
+            <Link to="/login" className="text-fuchsia-600 cursor-text text-sm">
               If you have an account?{" "}
-              <span className="text-[#56bce4]">Login</span>
+              <span className="text-[#56bce4] cursor-pointer">Login</span>
             </Link>
           </form>
         </div>

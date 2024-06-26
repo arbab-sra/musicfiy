@@ -1,7 +1,6 @@
 import axios from "axios";
 import { BACKEND_URL } from "../../context";
 
-
 export const UseWeekyTopSongs = async () => {
   try {
     const data = await axios.get(`${BACKEND_URL}/api/songs/weeklytopsong`, {
@@ -27,6 +26,7 @@ export const UseNewReliseSong = async () => {
       },
     });
     if (data.status === 200) {
+      console.log(data.data);
       return data.data;
     }
   } catch (error) {
@@ -123,4 +123,3 @@ export const UseCrasual = async () => {
     return error.message;
   }
 };
-

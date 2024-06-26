@@ -6,6 +6,7 @@ import Video from "../components/discovercomponents/Video";
 import Newrelises from "../components/Newrelises";
 import Album from "../components//Album";
 import Mood from "../components/Mood";
+import WeeklyTopSong from "../components/Weeklytop";
 import JoinPlatform from "../components/Joinplatform";
 const Discover = () => {
   return (
@@ -29,7 +30,7 @@ const Discover = () => {
         <hr />
         <Album />
         <hr />
-        <Mood />
+        <WeeklyTopSong firsthadding={"Weekly Top "} secondhadding={"Songs"} />
         <hr />
         <JoinPlatform />
         <hr />

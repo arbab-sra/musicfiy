@@ -5,7 +5,7 @@ import { FaPause, FaShuffle } from "react-icons/fa6";
 import { FaStepForward } from "react-icons/fa";
 import { FaStepBackward } from "react-icons/fa";
 import { ImLoop } from "react-icons/im";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { MdOutlineFlip } from "react-icons/md";
 import { Allsong } from "../constext/useContext";
 import { IoAdd } from "react-icons/io5";
@@ -14,7 +14,9 @@ import Trandingcompont from "./Trandingcompont";
 import Hadding from "./Hadding";
 import axios from "axios";
 import { BACKEND_URL } from "../../context";
+import { formatDate } from "../helper/format";
 const AudioPlayer = () => {
+  const [allowshaffle, setallowshaffle] = useState(false);
   const [Currentsongplay, setCurrentsongplay] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [themnail, setthemnail] = useState(null);
@@ -27,30 +29,7 @@ const AudioPlayer = () => {
   const audioRef = useRef(null);
   const { type, id } = useParams();
   const { weeklytop } = useContext(Allsong);
-  console.log("type", type);
-  function formatDate(inputDate) {
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-
-    const date = new Date(inputDate);
-    const day = date.getDate();
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
-    return `${month} ${day} ${year}`;
-  }
-
+  const navigate = useNavigate();
   const handlePlayPause = () => {
     const audio = audioRef.current;
     if (isPlaying) {
@@ -73,24 +52,40 @@ const AudioPlayer = () => {
     setCurrentTime(audio.currentTime);
   };
 
-  const songendedhandler = ()=>{
-    setCurrentsongplay(othersong[3].url);
-        setthemnail(othersong[3].themnail);
-        setviews(othersong[3].views);
-        setartiest(othersong[3].artist);
-n
-  }
-  // useEffect(() => {
-  //   const audio = audioRef.current;
-  //   if (audio && Currentsongplay) {
-  //     audio.play();
-  //     setIsPlaying(true);
-  //   }
-  // }, [Currentsongplay]);
+  const songendedhandler = () => {
+    let index = 0;
+    if (allowshaffle) {
+      const random = Math.floor(Math.random() * othersong.length);
+      setCurrentsongplay(othersong[random].url);
+      setthemnail(othersong[random].themnail);
+      setviews(othersong[random].views);
+      setartiest(othersong[random].artist);
+    navigate(`/${type}/${othersong[random]._id}`)
+    } else {
+      index += 1;
+      if (index == othersong.length) {
+        index = 0;
+      }
+      setCurrentsongplay(othersong[index].url);
+      setthemnail(othersong[index].themnail);
+      setviews(othersong[index].views);
+      setartiest(othersong[index].artist);
+    navigate(`/${type}/${othersong[index]._id}`)
+      
+    }
+  };
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio && Currentsongplay) {
+      audio.play();
+      setIsPlaying(true);
+    }
+  }, [Currentsongplay]);
   useEffect(() => {
     setothersong(weeklytop);
-    console.log("jkafdl", weeklytop);
-    weeklytop.forEach((element) => {
+
+    weeklytop.forEach((element, index) => {
+      console.log(index);
       if (element._id === id) {
         setCurrentsongplay(element.url);
         setthemnail(element.themnail);
@@ -100,15 +95,15 @@ n
     });
   }, [id, weeklytop]);
   useEffect(() => {
-    axios.get(`${BACKEND_URL}/api/songs/singlesong?id=${id}`)
-  } ,[id])
-  
+    axios.get(`${BACKEND_URL}/api/songs/singlesong?id=${id}`);
+  }, [id]);
+
   return (
     <>
       <div className="flex flex-col justify-center   h-[500px] mt-4 w-[1060px]   items-center bg-[#16151595] text-white p-4 rounded-lg shadow-lg ">
         <div className="">
           <audio
-          onEnded={songendedhandler}
+            onEnded={songendedhandler}
             ref={audioRef}
             src={Currentsongplay}
             onTimeUpdate={handleTimeUpdate}
@@ -191,10 +186,13 @@ n
         </div>
 
         <div className="flex justify-around  w-full mb-4">
-          <button className=" hover:text-white text-fuchsia-700 text-2xl">
+          <button
+            onClick={() => setallowshaffle(true)}
+            className=" hover:text-white text-fuchsia-700 text-2xl"
+          >
             <FaShuffle />
           </button>
-          <button  className=" hover:text-white text-fuchsia-700 text-2xl">
+          <button className=" hover:text-white text-fuchsia-700 text-2xl">
             <FaStepBackward />
           </button>
           <button
@@ -218,6 +216,13 @@ n
         {type === "weeklytopsong" && (
           <Hadding name={"Weekly Top "} lastname={"Song"} />
         )}
+        {type === "tranding" && (
+          <Hadding name={"Tranding "} lastname={"Song"} />
+        )}
+        {id === "arijit_sigh" && (
+          <Hadding name={"arijit_sigh "} lastname={"Song"} />
+        )}
+
         <div className=" dates w-[70%] h-[31px] ml-auto flex justify-between pl-8 pr-10  items-center">
           <div>
             <h4 className="font-sans text-white text-[15px]">Relises Date</h4>
@@ -237,6 +242,7 @@ n
             <Trandingcompont
               key={ele._id}
               id={ele._id}
+              type={type}
               rank={index + 1}
               name={ele.title}
               artistname={ele.artist}

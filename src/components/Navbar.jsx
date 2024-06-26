@@ -4,30 +4,8 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [islogin, setIslogin] = useState(false);
+  console.log(localStorage.getItem("profilpic"));
   
-  //   if (query === "") {
-  //     return;
-  //   }
-  //   console.log(query);
-
-  //   try {
-  //     const data = await axios.get(
-  //       `${BACKEND_URL}/api/songs/allSongsearch?query=`+{query},
-  //       {
-  //         headers: {
-  //           Authorization: `${localStorage.getItem("token")}`,
-  //         },
-  //       }
-  //     );
-  //     if (data.status === 200) {
-  //       setSearchSongs(data.data);
-  //       console.log(searchSongs);
-  //       setQuery("");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -39,7 +17,7 @@ const Navbar = () => {
       setIslogin(true);
       console.log("time in");
     }
-  }, []);
+  },[] );
 
   return (
     <div className="overflow-hidden h-[80px] p-3 bg-gradient-to-tr from-[#412C3A] to-[#533248] flex justify-center gap-1 items-center">
@@ -96,7 +74,7 @@ const Navbar = () => {
               className="w-[60px] h-[60px] overflow-hidden rounded-full object-cover"
               src={
                 localStorage.getItem("profilpic")
-                  ? localStorage.getItem("profilpic")
+                  ? (localStorage.getItem("profilpic"))
                   : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
               }
               alt=""

@@ -21,7 +21,7 @@ const Newrelises = () => {
           <div className="flex mt-9 m-auto  mb-9 justify-center items-center w-full  h-[245px]  ">
             {songs.length &&
               songs.map((elem, index) => {
-                console.log(elem);
+                 
                 if (index < 5) {
                   return (
                     <Card

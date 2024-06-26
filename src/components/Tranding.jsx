@@ -1,66 +1,21 @@
 import Hadding from "./Hadding";
-import Trandingcompont from "./Trandingcompont";
+
 import { IoAdd } from "react-icons/io5";
+import { useContext, useEffect, useState } from "react";
+import { Allsong } from "../constext/useContext";
+import Trandingcompont from "./Trandingcompont";
+import { formatDate } from "../helper/format";
 
 const Tranding = () => {
-  const data = [
-    {
-      name: "Surfcorn",
-      artistname: "The neighbourhood",
-      relisedata: "Nov 3,2022",
-      duration: "3:35",
-      Album: "Hard to Imagine the Neighbourhood Ever Changing",
-      rank: "#1",
-    },
-    {
-      name: "Skyfall Beats",
-      artistname: "Nightmairs",
-      relisedata: "dec 12,2023",
-      duration: "2:35",
-      Album: "Skyfall Beats",
-      rank: "#2",
-    },
-    {
-      name: "Love in me",
-      artistname: "jack harvloy",
-      relisedata: "jun 1,2020",
-      duration: "3:35",
-      Album: "Love in me",
-      rank: "#3",
-    },
-    {
-      name: "Greedy",
-      artistname: "Tata mcgill",
-      relisedata: "feb 2,2012",
-      duration: "3:35",
-      Album: "Greedy",
-      rank: "#4",
-    },
-    {
-      name: "Pan the round redd",
-      artistname: "Dojo cat",
-      relisedata: "Mar 3,2014",
-      duration: "3:35",
-      Album: "Pan the round redd",
-      rank: "#5",
-    },
-    {
-      name: "Dance on night",
-      artistname: "Duelipa",
-      relisedata: "Apr 4,2013",
-      duration: "3:35",
-      Album: "Dance on night",
-      rank: "#6",
-    },
-    {
-      name: "Water",
-      artistname: "Tyana ",
-      relisedata: "may 5,2025",
-      duration: "3:35",
-      Album: "Water",
-      rank: "#7",
-    },
-  ];
+  const [data, setData] = useState([]);
+  const { Trandingsong } = useContext(Allsong);
+
+  useEffect(() => {
+    if (Trandingsong) {
+      setData(Trandingsong);
+    }
+  }, [Trandingsong]);
+
   return (
     <div className="w-[1060px]  ">
       <Hadding name={"Tranding"} lastname={"Song"} />
@@ -76,20 +31,25 @@ const Tranding = () => {
         </div>
       </div>
       {/* trandingcompont */}
-      {data.map(({ name, artistname, relisedata, duration, Album, rank }) => {
-        return (
-          <Trandingcompont
-            key={name}
-            id={name}
-            rank={rank}
-            name={name}
-            artistname={artistname}
-            relisedata={relisedata}
-            duration={duration}
-            Album={Album}
-          />
-        );
-      })}
+      {data ?
+        data.map((ele, index) => {
+          const date = formatDate(ele.createdAt);
+         if (index < 7) return (
+            <Trandingcompont
+              key={ele._id}
+              id={ele._id}
+              rank={index + 1}
+              name={ele.title}
+              artistname={ele.artist}
+              relisedata={date}
+              duration={"2:39"}
+              Album={ele.title}
+              tranding={ele.themnail}
+              type={"tranding"}
+            />
+          );
+        }):"no data"
+        }
       <div className="w-[216px] bg-black flex mb-10 transition-all ease-in-out  hover:shadow-pink-500 hover:shadow-md cursor-pointer hover:translate-x-[2px] gap-3 justify-center items-center rounded-lg m-4 ml-auto mr-auto h-[63px]  ">
         <div className="text-white text-2xl h-[38px]  flex justify-center items-center w-[26px]">
           <strong>

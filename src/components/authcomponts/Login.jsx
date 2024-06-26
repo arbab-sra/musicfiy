@@ -26,11 +26,10 @@ const Login = () => {
       const res = await axios.post(`${BACKEND_URL}/api/user/login`, data, {
         headers: { "Content-Type": "application/json" },
         strictOriginWhenCrossOrigin: true,
-
       });
-    if(res.statusCode === 401 || res.statusCode === 400){
-      toast.error(res.data.message)
-    }
+      if (res.statusCode === 401 || res.statusCode === 400) {
+        toast.error(res.data.message);
+      }
       if (res) {
         setLoading(false);
         const fifteenDaysAgo = new Date();
@@ -41,13 +40,17 @@ const Login = () => {
         localStorage.setItem("token", res.data.token);
         console.log(res);
         toast.success("Account created successfully");
-           return navigate("/");
+        return navigate("/");
       }
     } catch (error) {
       setLoading(false);
       console.log(error.message);
-      if(error.response.status === 401 || error.response.status === 400){
-        toast.error(error.response.data.message)
+      if (
+        error.response.status === 401 ||
+        error.response.status === 400 ||
+        error.response.status === 404
+      ) {
+        toast.error(error.response.data.message);
       }
     }
   };
@@ -91,11 +94,14 @@ const Login = () => {
             >
               Log in
             </button>
-            <Link className="text-fuchsia-300 text-sm">
+            <Link className="text-fuchsia-300 cursor-text text-sm">
               if Not have account?{" "}
-              <span className=" hover:text-[#50bef5] text-[#2c2e2e]">
+              <Link
+                to={"/signup"}
+                className=" hover:text-[#50bef5] cursor-pointer text-[#2c2e2e]"
+              >
                 Sign up
-              </span>
+              </Link>
             </Link>
           </form>
         </div>

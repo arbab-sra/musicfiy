@@ -15,8 +15,9 @@ import axios from "axios";
 import { BACKEND_URL } from "../../context";
 import toast from "react-hot-toast";
 import Lodingcomponent from "./Loding";
+import { useNavigate } from "react-router-dom";
 const Sidebar = () => {
-
+ const navgate = useNavigate();
   const [loding ,setLoading] = useState(false)
   const logout = async() => {
    try {
@@ -26,15 +27,15 @@ const Sidebar = () => {
         Authorization: `${localStorage.getItem("token")}`,
       }
      });
-     console.log(res)
+     
      if (res){
        toast.success("Logout successfully");
-       console.log(res);
        localStorage.clear("user");
        localStorage.clear("username");
        localStorage.clear("profilpic");
-       localStorage.clear("token");
-       window.location.reload();
+       localStorage.clear("token")
+       navgate("/login")
+      //  window.location.reload();
        setLoading(false);
      }
    } catch (error) {
@@ -171,13 +172,13 @@ const Sidebar = () => {
               Setting
             </Link>
           </div>
-          <div className="w-[100%] mb-[4px] mt-[4px] h-[50px] text-white text-2xl btn11 transition-all ease-in hover:border-[1px] hover:bg-[#EE10B0] flex justify-start rounded-md p-2 gap-1 items-center">
+          <div className="w-[100%] mb-[4px] mt-[4px] h-[50px] text-white text-2xl  btn11 transition-all ease-in hover:border-[1px]   hover:bg-[#EE10B0] flex justify-start rounded-md p-2 gap-1 items-center">
             {localStorage.getItem("user") && (
               <button
                 onClick={logout}
-                className=" flex justify-center items-center"
+                className=" flex bg-transparent hover:bg-transparent justify-center items-center"
               >
-                <FaSignOutAlt /> Logout
+                <FaSignOutAlt className=" " /> Logout
               </button>
             )}
           </div>

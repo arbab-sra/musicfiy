@@ -45,11 +45,65 @@
     transform: rotate(-360deg);
   }
 }
+.main-div {
+  display: flex;
+}
+
+.main-div .animet-text {
+  margin: 0;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.animet-text li {
+  list-style: none;
+  color: #2c2c51;
+  font-size: 25px;
+  font-weight: 600;
+  position: relative;
+  top: 0;
+  animation: slide 12s steps(4) infinite;
+}
+
+@keyframes slide {
+  100% {
+    top: -160px;
+  }
+}
+
+.animet-text li span {
+  position: relative;
+  margin: 5px 0;
+  line-height: 30px;
+}
+
+.animet-text li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  background: rgb(229 231 235);
+  border-left: 3px solid #000000;
+  animation: typing 3s steps(10) infinite;
+}
+
+@keyframes typing {
+  40%,
+  60% {
+    left: calc(100% + 0px);
+  }
+  100% {
+    left: 0;
+  }
+}
 
 .gearbox {
   background: #111;
-  height: 150px;
-  width: 200px;
+  /* height: 150px; */
+  /* width: 200px; */
   position: relative;
   border: none;
   overflow: hidden;
@@ -290,16 +344,14 @@ input[type="range"]:focus::-ms-fill-upper {
   background: #89075e;
 }
 .rotate {
-  animation: rotate 500s linear infinite ;
+  animation: rotate 500s linear infinite;
 }
-
 
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
   }
-  100%{
+  100% {
     transform: rotate(3600deg);
   }
-  
 }

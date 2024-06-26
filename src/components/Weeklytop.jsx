@@ -16,7 +16,7 @@ const Weeklytop = ({ secondhadding, firsthadding }) => {
         <div className="w-[92%] pr-8 pl-9  overflow-hidden ">
           <Hadding name={firsthadding} lastname={secondhadding} />
           <div className="flex mt-9 m-auto  mb-9 justify-center items-center w-full  h-[245px]  ">
-            {weeklytop.length >0 &&
+            {weeklytop.length >0 ?
               weeklytop.map((e, index) => {
                 if (index < 5) {
                   {
@@ -36,7 +36,8 @@ const Weeklytop = ({ secondhadding, firsthadding }) => {
                     );
                   }
                 }
-              })}
+              }):"No Data"
+              }
           </div>
         </div>
         <div className=" absolute h-full  flex justify-center items-center top-0 right-0">

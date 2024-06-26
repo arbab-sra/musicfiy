@@ -11,6 +11,7 @@ const Trandingcompont = ({
   rank = "Rank",
   id = "Id",
   tranding,
+  type
 }) => {
 
   function formatDate(inputDate) {
@@ -28,13 +29,8 @@ const Trandingcompont = ({
     return `${month} ${day} ${year}`;
 }
 
-// Example usage
-
-
   const [play, setplay] = useState('red');
-  // const navigate = useNavigate()
   const { id: prams } = useParams();
- 
   useEffect(()=>{
     if (id == prams) {
       setplay("2px solid #00DDEB")
@@ -44,7 +40,7 @@ const Trandingcompont = ({
   },[prams , id])
   return (
     <Link
-      to={"/song/" + id}
+      to={`/${type}/` + id}
       className="w-full h-[60px] mt-4 flex justify-between items-center "
     >
       <div className="w-[4%] h-full  flex justify-center items-center ">
