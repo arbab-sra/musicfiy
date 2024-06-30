@@ -39,7 +39,7 @@ export const Song = (props) => {
   };
   const fatchtopsongdata = async () => {
     const data = await UseWeekyTopSongs();
-  // console.log(data);
+    // console.log(data);
     setweeklytop(data);
   };
   const fatchTrandingssdata = async () => {
