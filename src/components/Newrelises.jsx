@@ -19,7 +19,7 @@ const Newrelises = () => {
         <div className="w-[92%] pr-8 pl-9  overflow-hidden ">
           <Hadding name={"New Release"} lastname={"Song"} />
           <div className="flex mt-9 m-auto  mb-9 justify-center items-center w-full  h-[245px]  ">
-            {songs.length &&
+            {songs.length>0 &&
               songs.map((elem, index) => {
                  
                 if (index < 5) {

@@ -9,12 +9,11 @@ export const UseWeekyTopSongs = async () => {
       },
     });
     if (data.status === 200) {
-      // console.log(data.data);
+    
       return data.data;
     }
   } catch (error) {
-    console.log(error.message);
-    return error.message;
+    return [];
   }
 };
 
@@ -30,7 +29,7 @@ export const UseNewReliseSong = async () => {
       return data.data;
     }
   } catch (error) {
-    return error.message;
+    return [];
   }
 };
 
@@ -45,7 +44,7 @@ export const UseTrandingsong = async () => {
       return data.data;
     }
   } catch (error) {
-    return error.message;
+    return [];
   }
 };
 
@@ -60,7 +59,7 @@ export const UsePopularArtist = async () => {
       return data.data;
     }
   } catch (error) {
-    return error.message;
+    return [];
   }
 };
 
@@ -75,7 +74,7 @@ export const UseTopAlbum = async () => {
       return data.data;
     }
   } catch (error) {
-    return error.message;
+    return [];
   }
 };
 
@@ -90,7 +89,7 @@ export const UseMoodPlaylist = async () => {
       return data.data;
     }
   } catch (error) {
-    return error.message;
+    return [];
   }
 };
 
@@ -105,7 +104,7 @@ export const UseVideo = async () => {
       return data.data;
     }
   } catch (error) {
-    return error.message;
+    return [];
   }
 };
 
@@ -120,6 +119,6 @@ export const UseCrasual = async () => {
       return data.data;
     }
   } catch (error) {
-    return error.message;
+    return [];
   }
 };

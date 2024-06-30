@@ -60,7 +60,7 @@ const AudioPlayer = () => {
       setthemnail(othersong[random].themnail);
       setviews(othersong[random].views);
       setartiest(othersong[random].artist);
-    navigate(`/${type}/${othersong[random]._id}`)
+      navigate(`/${type}/${othersong[random]._id}`);
     } else {
       index += 1;
       if (index == othersong.length) {
@@ -70,8 +70,7 @@ const AudioPlayer = () => {
       setthemnail(othersong[index].themnail);
       setviews(othersong[index].views);
       setartiest(othersong[index].artist);
-    navigate(`/${type}/${othersong[index]._id}`)
-      
+      navigate(`/${type}/${othersong[index]._id}`);
     }
   };
   useEffect(() => {
@@ -82,17 +81,19 @@ const AudioPlayer = () => {
     }
   }, [Currentsongplay]);
   useEffect(() => {
-    setothersong(weeklytop);
+    if (weeklytop.length > 0) {
+      setothersong(weeklytop);
 
-    weeklytop.forEach((element, index) => {
-      console.log(index);
-      if (element._id === id) {
-        setCurrentsongplay(element.url);
-        setthemnail(element.themnail);
-        setviews(element.views);
-        setartiest(element.artist);
-      }
-    });
+      weeklytop.forEach((element, index) => {
+        console.log(index);
+        if (element._id === id) {
+          setCurrentsongplay(element.url);
+          setthemnail(element.themnail);
+          setviews(element.views);
+          setartiest(element.artist);
+        }
+      });
+    }
   }, [id, weeklytop]);
   useEffect(() => {
     axios.get(`${BACKEND_URL}/api/songs/singlesong?id=${id}`);
@@ -187,10 +188,10 @@ const AudioPlayer = () => {
 
         <div className="flex justify-around  w-full mb-4">
           <button
-            onClick={() => setallowshaffle(true)}
+            onClick={() => setallowshaffle((pre) => !pre)}
             className=" hover:text-white text-fuchsia-700 text-2xl"
           >
-            <FaShuffle />
+            <FaShuffle color={allowshaffle ? "white" : "purple"} />
           </button>
           <button className=" hover:text-white text-fuchsia-700 text-2xl">
             <FaStepBackward />
@@ -199,13 +200,20 @@ const AudioPlayer = () => {
             onClick={handlePlayPause}
             className=" hover:text-white text-fuchsia-700 text-2xl"
           >
-            {isPlaying ? <FaPause /> : <FaPlay />}
+            {isPlaying ? (
+              <FaPause color={isPlaying == true ? "white" : "purple"} />
+            ) : (
+              <FaPlay />
+            )}
           </button>
           <button className=" hover:text-white text-fuchsia-700 text-2xl">
             <FaStepForward />
           </button>
-          <button className=" hover:text-white text-fuchsia-700 text-2xl">
-            <ImLoop />
+          <button
+            onClick={() => setallowshaffle((pre) => !pre)}
+            className=" hover:text-white text-fuchsia-700 text-2xl"
+          >
+            <ImLoop color={allowshaffle == false ? "white" : "purple"} />
           </button>
         </div>
       </div>
@@ -235,24 +243,25 @@ const AudioPlayer = () => {
           </div>
         </div>
         {/* trandingcompont */}
-        {othersong.map((ele, index) => {
-          const date = formatDate(ele.updatedAt);
+        {othersong.length > 0 &&
+          othersong.map((ele, index) => {
+            const date = formatDate(ele.updatedAt);
 
-          return (
-            <Trandingcompont
-              key={ele._id}
-              id={ele._id}
-              type={type}
-              rank={index + 1}
-              name={ele.title}
-              artistname={ele.artist}
-              relisedata={date}
-              duration={0}
-              Album={ele.title}
-              tranding={ele.themnail}
-            />
-          );
-        })}
+            return (
+              <Trandingcompont
+                key={ele._id}
+                id={ele._id}
+                type={type}
+                rank={index + 1}
+                name={ele.title}
+                artistname={ele.artist}
+                relisedata={date}
+                duration={0}
+                Album={ele.title}
+                tranding={ele.themnail}
+              />
+            );
+          })}
         <div className="w-[216px] bg-black flex mb-10 transition-all ease-in-out  hover:shadow-pink-500 hover:shadow-md cursor-pointer hover:translate-x-[2px] gap-3 justify-center items-center rounded-lg m-4 ml-auto mr-auto h-[63px]  ">
           <div className="text-white text-2xl h-[38px]  flex justify-center items-center w-[26px]">
             <strong>

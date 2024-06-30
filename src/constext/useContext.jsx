@@ -22,6 +22,7 @@ export const Song = (props) => {
 
   const fatchMoodplylistdata = async () => {
     const data = await UseMoodPlaylist();
+    console.log("arbab", data);
     setMoodplylist(data);
   };
   const fatchVideodata = async () => {

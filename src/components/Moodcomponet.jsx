@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import image from "../assets/1.png";
 import { PiPlaylist } from "react-icons/pi";
 
-const Moodcomponet = ({ mood }) => {
+const Moodcomponet = ({ mood ,id }) => {
   return (
-    <Link to = {`/mood/${mood}`} className="w-[180px]  hover:shadow-sm hover:shadow-purple-500 mt-4  m-2 p-1 flex flex-col justify-center items-center pt-4 h-full bg-[#1F1F1F] ">
+    <Link to = {`/mood/${mood}/${id}`} className="w-[180px]  hover:shadow-sm hover:shadow-purple-500 mt-4  m-2 p-1 flex flex-col justify-center items-center pt-4 h-full bg-[#1F1F1F] ">
       <div className="w-[150px]  h-[190px] border overflow-hidden relative ">
         <div className="absolute ml-[5px] w-[140px] h-[50px] border-2 bottom-2 flex justify-center items-center border-purple-500">
           <h4 className=" z-50 text-white text-2xl font-mono font-extralight">

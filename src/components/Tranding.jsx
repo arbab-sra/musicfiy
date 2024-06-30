@@ -11,7 +11,7 @@ const Tranding = () => {
   const { Trandingsong } = useContext(Allsong);
 
   useEffect(() => {
-    if (Trandingsong) {
+    if (Trandingsong.length > 0) {
       setData(Trandingsong);
     }
   }, [Trandingsong]);
@@ -31,25 +31,26 @@ const Tranding = () => {
         </div>
       </div>
       {/* trandingcompont */}
-      {data ?
-        data.map((ele, index) => {
-          const date = formatDate(ele.createdAt);
-         if (index < 7) return (
-            <Trandingcompont
-              key={ele._id}
-              id={ele._id}
-              rank={index + 1}
-              name={ele.title}
-              artistname={ele.artist}
-              relisedata={date}
-              duration={"2:39"}
-              Album={ele.title}
-              tranding={ele.themnail}
-              type={"tranding"}
-            />
-          );
-        }):"no data"
-        }
+      {data.length > 0
+        ? data.map((ele, index) => {
+            const date = formatDate(ele.createdAt);
+            if (index < 7)
+              return (
+                <Trandingcompont
+                  key={ele._id}
+                  id={ele._id}
+                  rank={index + 1}
+                  name={ele.title}
+                  artistname={ele.artist}
+                  relisedata={date}
+                  duration={"2:39"}
+                  Album={ele.title}
+                  tranding={ele.themnail}
+                  type={"tranding"}
+                />
+              );
+          })
+        : "no data"}
       <div className="w-[216px] bg-black flex mb-10 transition-all ease-in-out  hover:shadow-pink-500 hover:shadow-md cursor-pointer hover:translate-x-[2px] gap-3 justify-center items-center rounded-lg m-4 ml-auto mr-auto h-[63px]  ">
         <div className="text-white text-2xl h-[38px]  flex justify-center items-center w-[26px]">
           <strong>

@@ -14,20 +14,7 @@ const Trandingcompont = ({
   type
 }) => {
 
-  function formatDate(inputDate) {
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-    // Parse the input date string
-    const date = new Date(inputDate);
-
-    // Extract day, month, and year
-    const day = date.getDate();
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
-
-    // Format the date as "Mon DD YYYY"
-    return `${month} ${day} ${year}`;
-}
+ 
 
   const [play, setplay] = useState('red');
   const { id: prams } = useParams();

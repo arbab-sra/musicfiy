@@ -8,7 +8,7 @@ const Mood = () => {
   const { Moodplylist } = useContext(Allsong);
   const [data, setdata] = useState([]);
   useEffect(() => {
-    if (Moodplylist) {
+    if (Moodplylist.length > 0) {
       setdata(Moodplylist);
     }
   }, [Moodplylist]);
@@ -18,10 +18,14 @@ const Mood = () => {
         <Hadding name={"Mood"} lastname={"playlist"} />
         <div className="flex justify-between items-center">
           <div className="flex justify-center mt-6 items-center m-auto">
-            {data ?
-              data.map((ele, index) => {
-                if (index < 5) return  <Moodcomponet key={ index} mood={ele.mood} />;
-              }):"no data"}
+            {data.length > 0
+              ? data.map((ele, index) => {
+                  let id = ele.songs[0]._id;
+
+                  if (index < 5)
+                    return <Moodcomponet id={id} key={index} mood={ele.mood} />;
+                })
+              : "no data"}
           </div>
           <Link className="w-[85px] h-[90px] hover:text-purple-500 flex justify-center items-center flex-col   ">
             <FaCirclePlus size={"63px"} /> <h3>View All</h3>

@@ -10,7 +10,7 @@ const Artists = ({ firstname, lastname }) => {
   const [data, setdata] = useState([]);
   // console.log(PopularArtist);
   useEffect(() => {
-    if (PopularArtist) {
+    if (PopularArtist.length > 0) {
       setdata(PopularArtist);
     }
   }, [PopularArtist]);
@@ -19,11 +19,12 @@ const Artists = ({ firstname, lastname }) => {
       <Hadding name={firstname} lastname={lastname} />
       <div className="flex justify-center items-center w-[1060px]  p-3 h-[262px]">
         <div className="w-full h-full  p-1 overflow-hidden  gap-5 flex justify-center items-center">
-          {data
+          {data.length >0
             ? data.map((ele, index) => {
+              
                 if (index < 5)
                   return (
-                    <Artistcard key={index} image={image} name={ele._id} />
+                    <Artistcard key={index} image={image} songid={ele.songs[0]._id} name={ele._id} />
                   );
               })
             : "no data"}
