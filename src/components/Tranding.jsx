@@ -33,7 +33,7 @@ const Tranding = () => {
       {/* trandingcompont */}
       {data.length > 0
         ? data.map((ele, index) => {
-            const date = formatDate(ele.createdAt);
+            const date = formatDate(ele.releaseDate);
             if (index < 7)
               return (
                 <Trandingcompont
