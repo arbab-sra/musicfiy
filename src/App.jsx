@@ -8,10 +8,23 @@ import Login from "./components/authcomponts/Login";
 import { Toaster } from "react-hot-toast";
 import SongPlay from "./pages/SongPlay";
 import Contact from "./pages/Contect";
+import { useEffect } from "react";
 
 
 const App = () => {
-  
+  useEffect(() => {
+    const zoomOut = () => {
+      document.body.style.zoom = '90%'; // Zoom out to 90%
+    };
+
+    // Apply zoom out on load
+    zoomOut();
+
+    // Cleanup (optional)
+    return () => {
+      document.body.style.zoom = '100%'; // Reset to 100% on unmount
+    };
+  }, []);
   return (
     <>
       <div>
