@@ -29,7 +29,7 @@ const Album = ({
 
   return (
     <div className="w-[1060px] bg-gradient-to-tl to-[#178ccf91] from-[#094d8d34] ">
-      <div className="h-[430px] bg-gradient-to-r from-[#0E9EEF] to-[#2779c559] w-full relative mt-4 mb-[50px]  overflow-x-hidden  ">
+      <div className="h-[430px] bg-gradient-to-r from-[#0E9EEF] to-[#2779c559] w-full relative mt-4 mb-[40px]  overflow-x-hidden  ">
         <div className="w-full h-[60px]  flex justify-between items-center pr-3 pl-3 ">
           <div className="h-[60px] w-[60px]  flex justify-center items-center">
             <FaArrowLeft color={"white"} size={"30px"} />
