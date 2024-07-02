@@ -113,6 +113,7 @@ const Album = ({
           ? data.map((ele, index) => {
               let date = formatDate(ele.songs[0].releaseDate);
               // console.log(date);
+              if (index < 14){
               return (
                 <Trandingcompont
                   key={ele.songs[0]._id}
@@ -126,7 +127,7 @@ const Album = ({
                   tranding={ele.songs[0].themnail}
                   type={"album"}
                 />
-              );
+              );}
             })
           : "no data"}
         <div className="w-[216px] bg-[#3f303b] flex mb-10 transition-all ease-in-out  hover:shadow-pink-500 hover:shadow-md cursor-pointer hover:translate-x-[2px] gap-3 justify-center items-center rounded-lg m-4 ml-auto mt-7  mr-auto h-[63px]  ">
