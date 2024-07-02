@@ -101,7 +101,18 @@ const AudioPlayer = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center   h-[500px] mt-4 w-[1060px]   items-center bg-[#16151595] text-white p-4 rounded-lg shadow-lg ">
+      <div
+        style={{
+          background: `url(${themnail})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          top: "0",
+          backdropFilter: "blur(500px)",
+          backfaceVisibility: "hidden",
+        }}
+        className="flex bg-opacity-[0.1] flex-col justify-center  h-[500px] mt-4 w-[1060px]   items-center  text-white p-4 rounded-lg shadow-lg "
+      >
         <div className="">
           <audio
             onEnded={songendedhandler}
@@ -110,30 +121,7 @@ const AudioPlayer = () => {
             onTimeUpdate={handleTimeUpdate}
           />
         </div>
-        <div className="w-[250px] h-[250px] rotate bg-gradient-to-t from-[#953636] to-[ #363695]  p-2 bg-gradient-to-tr from-fuchsia-600 to-sky-600 h-[250px] rounded-full flex justify-center items-center   relative">
-          <button
-            onClick={() => setshowimg((val) => !val)}
-            className=" bottom-3 right-4 z-50"
-          >
-            <MdOutlineFlip className="dark:text-white text-black" />
-          </button>
-          {showimg ? (
-            themnail && (
-              <img
-                src={themnail}
-                alt="Album Artwork"
-                className="w-full h-full contrast-125 absolute rounded-full  "
-              />
-            )
-          ) : (
-            <iframe
-              className="absolute"
-              width={"200px"}
-              height={"200px"}
-              src="https://lottie.host/embed/d397cae8-217d-4790-a267-4ac95e532263/lel1TX25Ae.json"
-            ></iframe>
-          )}
-        </div>
+        <div className="w-[250px]  rotate  p-2 h-[250px] rounded-full flex justify-center items-center   relative"></div>
         <div className="text-center w-full  h-[100px]  flex justify-between px-10 items-center   mb-4 mt-4">
           <div>
             <p>
