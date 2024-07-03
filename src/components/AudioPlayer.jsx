@@ -107,9 +107,6 @@ const AudioPlayer = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          top: "0",
-          backdropFilter: "blur(500px)",
-          backfaceVisibility: "hidden",
         }}
         className="flex bg-opacity-[0.1] flex-col justify-center  h-[500px] mt-4 w-[1060px]   items-center  text-white p-4 rounded-lg shadow-lg "
       >
