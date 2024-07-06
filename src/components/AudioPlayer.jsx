@@ -98,7 +98,6 @@ const AudioPlayer = () => {
   useEffect(() => {
     axios.get(`${BACKEND_URL}/api/songs/singlesong?id=${id}`);
   }, [id]);
-
   return (
     <>
       <div
@@ -106,9 +105,9 @@ const AudioPlayer = () => {
           background: `url(${themnail})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "",
+          backgroundPosition: "center",
         }}
-        className="flex border  bg-opacity-[0.1] flex-col justify-center  h-[500px] mt-4 w-[1060px]   items-center  text-white p-4 rounded-lg shadow-lg "
+        className="flex border backdrop:z-40 bg-opacity-[0.1] flex-col justify-center  h-[500px] mt-4 w-[1060px]   items-center  text-white p-4 rounded-lg shadow-lg "
       >
         <div className="">
           <audio
@@ -145,7 +144,7 @@ const AudioPlayer = () => {
           </div>
           {/* <div className=" mb-9"><iframe src="https://lottie.host/embed/5eb82fc0-6319-4b92-9b14-605c1dbcf658/J9D0iUdu2D.json"></iframe></div> */}
         </div>
-        <div className="flex  flex-col   items-center w-full mb-4">
+        <div className="flex  flex-col  border bg-red-500 pt-5 items-center w-full mb-4">
           <input
             type="range"
             min="0"
@@ -171,7 +170,7 @@ const AudioPlayer = () => {
           </div>
         </div>
 
-        <div className="flex justify-around  w-full mb-4">
+        <div className="flex justify-around border bord w-full mb-4">
           <button
             onClick={() => setallowshaffle((pre) => !pre)}
             className=" hover:text-white text-fuchsia-700 text-2xl"
