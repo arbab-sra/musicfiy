@@ -71,7 +71,7 @@ const Sidebar = () => {
   return (
     <div className="w-[270px] p-[20px] min-h-[3000px] h-full overflow-hidden bg-[#0E1920]">
       <Link to={"/"} className="logo w-[166px] h-[63px] ">
-        <h2 className="bg-gradient-to-r text-[30px]  md:text-[40px] font-semibold text-center from-[#EE10B0] to-[#0E9EEF] inline-block text-transparent bg-clip-text">
+        <h2 className="bg-gradient-to-r  from-[#EE10B0] to-[#0E9EEF] inline-block text-transparent bg-clip-text text-[30px] md:text-[40px] font-semibold text-center">
           Musicify
         </h2>
       </Link>

@@ -6,10 +6,8 @@ import { FaStepForward } from "react-icons/fa";
 import { FaStepBackward } from "react-icons/fa";
 import { ImLoop } from "react-icons/im";
 import { useParams, useNavigate } from "react-router-dom";
-import { MdOutlineFlip } from "react-icons/md";
 import { Allsong } from "../constext/useContext";
 import { IoAdd } from "react-icons/io5";
-
 import Trandingcompont from "./Trandingcompont";
 import Hadding from "./Hadding";
 import axios from "axios";
@@ -17,13 +15,13 @@ import { BACKEND_URL } from "../../context";
 import { formatDate } from "../helper/format";
 const AudioPlayer = () => {
   const [allowshaffle, setallowshaffle] = useState(false);
+  const [currentsongindex, setcurrentsongindex] = useState(null);
   const [Currentsongplay, setCurrentsongplay] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [themnail, setthemnail] = useState(null);
   const [artiest, setartiest] = useState(null);
   const [views, setviews] = useState(null);
   const [othersong, setothersong] = useState([]);
-  const [showimg, setshowimg] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef(null);
@@ -73,6 +71,17 @@ const AudioPlayer = () => {
       navigate(`/${type}/${othersong[index]._id}`);
     }
   };
+  const handleNext = () => {
+    let next = othersong[currentsongindex + 1]._id;
+    navigate(`/${type}/${next}`);
+    setcurrentsongindex(currentsongindex + 1);
+  };
+  const handleback = () => {
+    let next = othersong[currentsongindex - 1]._id;
+    navigate(`/${type}/${next}`);
+    setcurrentsongindex(currentsongindex - 1);
+  };
+
   useEffect(() => {
     const audio = audioRef.current;
     if (audio && Currentsongplay) {
@@ -83,14 +92,13 @@ const AudioPlayer = () => {
   useEffect(() => {
     if (weeklytop.length > 0) {
       setothersong(weeklytop);
-
       weeklytop.forEach((element, index) => {
-        console.log(index);
         if (element._id === id) {
           setCurrentsongplay(element.url);
           setthemnail(element.themnail);
           setviews(element.views);
           setartiest(element.artist);
+          setcurrentsongindex(index);
         }
       });
     }
@@ -121,16 +129,18 @@ const AudioPlayer = () => {
         <div className="text-center w-full font-bold t  h-[100px]  flex justify-between px-10 items-center   mb-4 mt-4">
           <div>
             <p className="text-xl">
-              views:{" "}
+              Views:{" "}
               <span className="text-xl">
                 {views > 1000 ? (views / 1000).toFixed() + " K" : views}
               </span>
             </p>
           </div>
           <div className=" ">
-            <h3 className="text-2xl font-bold capitalize ">{artiest} </h3>
+            <h3 className="text-xl font-bold capitalize ">{artiest} </h3>
 
-            <p className="text-xl">Musicify</p>
+            <p className="text-[17px] bg-gradient-to-bl  from-[#EE10B0] to-[#0E9EEF] inline-block text-transparent bg-clip-text">
+              Musicify
+            </p>
           </div>
           <div className=" h-[100px] w-[100px] mb-8">
             {isPlaying && (
@@ -177,7 +187,7 @@ const AudioPlayer = () => {
           >
             <FaShuffle color={allowshaffle ? "white" : "purple"} />
           </button>
-          <button className=" hover:text-white text-fuchsia-700 text-2xl">
+          <button onClick={handleback} className=" hover:text-white text-fuchsia-700 text-2xl">
             <FaStepBackward />
           </button>
           <button
@@ -190,7 +200,10 @@ const AudioPlayer = () => {
               <FaPlay />
             )}
           </button>
-          <button className=" hover:text-white text-fuchsia-700 text-2xl">
+          <button
+            onClick={handleNext}
+            className=" hover:text-white text-fuchsia-700 text-2xl"
+          >
             <FaStepForward />
           </button>
           <button
