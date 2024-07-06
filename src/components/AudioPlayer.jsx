@@ -102,7 +102,7 @@ const AudioPlayer = () => {
     <>
       <div
         style={{
-          background: `url(${themnail})`,
+          backgroundImage: `url(${themnail})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -117,7 +117,7 @@ const AudioPlayer = () => {
             onTimeUpdate={handleTimeUpdate}
           />
         </div>
-        <div className="w-[250px]  rotate  p-2 h-[250px] rounded-full flex justify-center items-center   relative"></div>
+        <div className="w-[250px]  p-2 h-[250px] rounded-full flex justify-center items-center   relative"></div>
         <div className="text-center w-full font-bold t  h-[100px]  flex justify-between px-10 items-center   mb-4 mt-4">
           <div>
             <p className="text-xl">
@@ -144,7 +144,7 @@ const AudioPlayer = () => {
           </div>
           {/* <div className=" mb-9"><iframe src="https://lottie.host/embed/5eb82fc0-6319-4b92-9b14-605c1dbcf658/J9D0iUdu2D.json"></iframe></div> */}
         </div>
-        <div className="flex  flex-col  border bg-red-500 pt-5 items-center w-full mb-4">
+        <div className="flex  flex-col justify-center pt-5 items-center w-full mb-4">
           <input
             type="range"
             min="0"
@@ -170,7 +170,7 @@ const AudioPlayer = () => {
           </div>
         </div>
 
-        <div className="flex justify-around border bord w-full mb-4">
+        <div className="flex justify-around w-full mb-4">
           <button
             onClick={() => setallowshaffle((pre) => !pre)}
             className=" hover:text-white text-fuchsia-700 text-2xl"
