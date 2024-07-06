@@ -103,7 +103,7 @@ const AudioPlayer = () => {
     <>
       <div
         style={{
-          background: `url(${"https://res.cloudinary.com/duns099gs/image/upload/v1719942728/themnail/kibklunfjufh5jlefnti.jpg"})`,
+          background: `url(${themnail})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "",
