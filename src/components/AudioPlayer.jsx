@@ -103,12 +103,12 @@ const AudioPlayer = () => {
     <>
       <div
         style={{
-          background: `url(${themnail})`,
+          background: `url(${"https://res.cloudinary.com/duns099gs/image/upload/v1719942728/themnail/kibklunfjufh5jlefnti.jpg"})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "",
         }}
-        className="flex bg-opacity-[0.1] flex-col justify-center  h-[500px] mt-4 w-[1060px]   items-center  text-white p-4 rounded-lg shadow-lg "
+        className="flex border  bg-opacity-[0.1] flex-col justify-center  h-[500px] mt-4 w-[1060px]   items-center  text-white p-4 rounded-lg shadow-lg "
       >
         <div className="">
           <audio
@@ -119,11 +119,11 @@ const AudioPlayer = () => {
           />
         </div>
         <div className="w-[250px]  rotate  p-2 h-[250px] rounded-full flex justify-center items-center   relative"></div>
-        <div className="text-center w-full  h-[100px]  flex justify-between px-10 items-center   mb-4 mt-4">
+        <div className="text-center w-full font-bold t  h-[100px]  flex justify-between px-10 items-center   mb-4 mt-4">
           <div>
-            <p>
+            <p className="text-xl">
               views:{" "}
-              <span>
+              <span className="text-xl">
                 {views > 1000 ? (views / 1000).toFixed() + " K" : views}
               </span>
             </p>
@@ -131,7 +131,7 @@ const AudioPlayer = () => {
           <div className=" ">
             <h3 className="text-2xl font-bold capitalize ">{artiest} </h3>
 
-            <p className="text-xs">Musicify</p>
+            <p className="text-xl">Musicify</p>
           </div>
           <div className=" h-[100px] w-[100px] mb-8">
             {isPlaying && (
