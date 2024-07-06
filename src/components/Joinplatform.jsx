@@ -23,16 +23,16 @@ const Joinplatform = () => {
               <Link className="text-[#56bce4] hover:border-b-2 ">
                 Login Button
               </Link>
-              . <strong>Created by <i className="text-2xl hover:border-b-2 text-[#38f7fb]">Arbakfdjklfb</i></strong> 
+              . <strong>Created by <i className="text-2xl hover:border-b-2 text-[#38f7fb]">Arbab</i></strong> 
             </p>
           </div>
           <div className="flex justify-center  w-1/2 h-full   items-center ">
             <div className="longin h-full w-full flex justify-center items-center   gap-[46px]">
-              <Link className="bg-[#1E1E1E] h-[38px] w-[119px] text-center rounded-md p-1 text-xl text-[#FF26C2]  transition-all ease-in hover:text-white hover:font-mono">
+              <Link to={"/login"} className="bg-[#1E1E1E] h-[38px] w-[119px] text-center rounded-md p-1 text-xl text-[#FF26C2]  transition-all ease-in hover:text-white hover:font-mono">
                 Login
               </Link>
 
-              <Link className="bg-gradient-to-r h-[38px] w-[119px] text-center p-1 text-xl rounded-md from-[#F32E7C] transition-all ease-in to-[#FB37FF] hover:text-[#c7eed5] hover:font-mono text-[#1E1E1E]">
+              <Link to={"/signup"} className="bg-gradient-to-r h-[38px] w-[119px] text-center p-1 text-xl rounded-md from-[#F32E7C] transition-all ease-in to-[#FB37FF] hover:text-[#c7eed5] hover:font-mono text-[#1E1E1E]">
                 Signup
               </Link>
             </div>
@@ -61,7 +61,7 @@ const Joinplatform = () => {
               <div className="w-[80%] h-[2px] bg-white"></div>
             </div>
             <div className="w-full gap-4 h-[75%] flex justify-start items-center flex-col">
-              <Link>
+              <Link to={"/"}>
                 <h4 className="text-white font-serif text-xl hover:opacity-80 hover:text-sky-500 transition-all ease-out hover:translate-x-[2px]">
                   Song
                 </h4>
