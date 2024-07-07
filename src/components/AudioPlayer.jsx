@@ -51,24 +51,17 @@ const AudioPlayer = () => {
   };
 
   const songendedhandler = () => {
-    let index = 0;
     if (allowshaffle) {
       const random = Math.floor(Math.random() * othersong.length);
-      setCurrentsongplay(othersong[random].url);
-      setthemnail(othersong[random].themnail);
-      setviews(othersong[random].views);
-      setartiest(othersong[random].artist);
       navigate(`/${type}/${othersong[random]._id}`);
+      setcurrentsongindex(random+1);
     } else {
-      index += 1;
-      if (index == othersong.length) {
-        index = 0;
+      if (currentsongindex == othersong.length) {
+        setcurrentsongindex(0);
       }
-      setCurrentsongplay(othersong[index].url);
-      setthemnail(othersong[index].themnail);
-      setviews(othersong[index].views);
-      setartiest(othersong[index].artist);
-      navigate(`/${type}/${othersong[index]._id}`);
+      
+      navigate(`/${type}/${othersong[currentsongindex + 1]._id}`);
+      setcurrentsongindex(currentsongindex + 1);
     }
   };
   const handleNext = () => {
@@ -187,7 +180,10 @@ const AudioPlayer = () => {
           >
             <FaShuffle color={allowshaffle ? "white" : "purple"} />
           </button>
-          <button onClick={handleback} className=" hover:text-white text-fuchsia-700 text-2xl">
+          <button
+             onClick={handleback}
+            className=" hover:text-white text-fuchsia-700 text-2xl"
+          >
             <FaStepBackward />
           </button>
           <button

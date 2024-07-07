@@ -9,6 +9,8 @@ import { Toaster } from "react-hot-toast";
 import SongPlay from "./pages/SongPlay";
 import Contact from "./pages/Contect";
 import { useEffect } from "react";
+import Premium from "./pages/Premium";
+import About from "./pages/About";
 
 
 const App = () => {
@@ -34,7 +36,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/" element={"kalfj"} /> */}
           <Route path="/discover" element={<Discover />} />
           <Route path="/albums" element={<Album />} />
           <Route path="/artists" element={<Artists />} />
@@ -42,6 +43,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/:type/:id/" element={<SongPlay />} />
           <Route path="/:type/:typename/:id/" element={<SongPlay />} />
+          <Route path="/premium" element={<Premium />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </>

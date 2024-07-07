@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  width: 6px;
+  background:rgb(37, 36, 36);
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ef39c2;
+  border-radius: 50px;
+  
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #dedada;
+}
+
 .swiper {
   width: 100%;
   height: 100%;
