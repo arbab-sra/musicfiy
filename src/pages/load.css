@@ -1,0 +1,29 @@
+@keyframes openDoorLeft {
+  0% {
+    transform: translateX(0);
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: translateX(-100%);
+    transform: skewX(90deg);
+  }
+}
+
+@keyframes openDoorRight {
+  0% {
+    transform: translateX(0);
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: translateX(100%);
+    transform: skewX(-90deg);
+  }
+}
+
+.left-door-open {
+  animation: openDoorLeft 3s forwards;
+}
+
+.right-door-open {
+  animation: openDoorRight 3s forwards;
+}

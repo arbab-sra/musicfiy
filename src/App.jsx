@@ -11,20 +11,16 @@ import Contact from "./pages/Contect";
 import { useEffect } from "react";
 import Premium from "./pages/Premium";
 import About from "./pages/About";
-
+import Load from "./pages/Load";
 
 const App = () => {
   useEffect(() => {
     const zoomOut = () => {
-      document.body.style.zoom = '90%'; // Zoom out to 90%
+      document.body.style.zoom = "90%";
     };
-
-    // Apply zoom out on load
     zoomOut();
-
-    // Cleanup (optional)
     return () => {
-      document.body.style.zoom = '100%'; // Reset to 100% on unmount
+      document.body.style.zoom = "100%";
     };
   }, []);
   return (
@@ -45,6 +41,7 @@ const App = () => {
           <Route path="/:type/:typename/:id/" element={<SongPlay />} />
           <Route path="/premium" element={<Premium />} />
           <Route path="/about" element={<About />} />
+          <Route path="/load" element={<Load />} />
         </Routes>
       </Router>
     </>
