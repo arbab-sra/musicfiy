@@ -8,12 +8,13 @@ import Login from "./components/authcomponts/Login";
 import { Toaster } from "react-hot-toast";
 import SongPlay from "./pages/SongPlay";
 import Contact from "./pages/Contect";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Premium from "./pages/Premium";
 import About from "./pages/About";
 import Load from "./pages/Load";
 
 const App = () => {
+  const [isload, setisload] = useState(true);
   useEffect(() => {
     const zoomOut = () => {
       document.body.style.zoom = "90%";
@@ -23,6 +24,13 @@ const App = () => {
       document.body.style.zoom = "100%";
     };
   }, []);
+  setTimeout(() => {
+    setisload(false);
+  }, 3050);
+
+  if (isload) {
+    return <Load />;
+  }
   return (
     <>
       <div>
@@ -31,6 +39,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          
           <Route path="/login" element={<Login />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/albums" element={<Album />} />

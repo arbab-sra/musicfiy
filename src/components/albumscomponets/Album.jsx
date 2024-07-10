@@ -105,7 +105,7 @@ const Album = ({
             <h4 className="font-sans text-white text-[15px]">Album </h4>
           </div>
           <div>
-            <h4 className="font-sans text-white text-[15px]">Time</h4>
+            <h4 className="font-sans text-white text-[15px]">Views</h4>
           </div>
         </div>
         {/* trandingcompont */}
@@ -122,7 +122,7 @@ const Album = ({
                   name={ele.songs[0].title}
                   artistname={ele._id}
                   relisedata={date}
-                  duration={"3:53"}
+                  duration={ele.views >1000 ? (ele.views / 1000).toFixed(1) + "K" : ele.views}
                   Album={ele.songs[0].title}
                   tranding={ele.songs[0].themnail}
                   type={"album"}

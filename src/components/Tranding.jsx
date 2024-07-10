@@ -27,7 +27,7 @@ const Tranding = () => {
           <h4 className="font-sans text-white text-[15px]">Album </h4>
         </div>
         <div>
-          <h4 className="font-sans text-white text-[15px]">Time</h4>
+          <h4 className="font-sans text-white text-[15px]">Views</h4>
         </div>
       </div>
       {/* trandingcompont */}
@@ -43,7 +43,7 @@ const Tranding = () => {
                   name={ele.title}
                   artistname={ele.artist}
                   relisedata={date}
-                  duration={"2:39"}
+                  duration={ele.views >1000 ? (ele.views / 1000).toFixed(1) + "K" : ele.views}
                   Album={ele.title}
                   tranding={ele.themnail}
                   type={"tranding"}

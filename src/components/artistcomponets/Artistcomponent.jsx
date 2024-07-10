@@ -120,7 +120,7 @@ const Artistcomponent = () => {
             <h4 className="font-sans text-white text-[15px]">Album </h4>
           </div>
           <div>
-            <h4 className="font-sans text-white text-[15px]">Time</h4>
+            <h4 className="font-sans text-white text-[15px]">Views</h4>
           </div>
         </div>
         {/* trandingcompont */}
@@ -136,7 +136,7 @@ const Artistcomponent = () => {
               name={ele.songs[0].title}
               artistname={ele.songs[0].artist}
               relisedata={date}
-              duration={"3:45"}
+              duration={ele.songs[0].views >1000 ? (ele.songs[0].views / 1000).toFixed(1) + "K" : ele.views}
               Album={ele.songs[0].title}
               tranding={ele.songs[0].themnail}
 

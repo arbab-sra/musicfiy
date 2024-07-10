@@ -1,4 +1,4 @@
-@keyframes openDoorLeft {
+/* @keyframes openDoorLeft {
   0% {
     transform: translateX(0);
     transform: skewX(0deg);
@@ -26,4 +26,276 @@
 
 .right-door-open {
   animation: openDoorRight 3s forwards;
+} */
+
+
+:root {
+	--hue: 223;
+	--bg: hsl(var(--hue),90%,90%);
+	--fg: hsl(var(--hue),90%,10%);
+	--primary: hsl(var(--hue),90%,50%);
+	--trans-dur: 0.3s;
+	
 }
+ .load {
+	background-color: var(--bg);
+	color: var(--fg);
+	display: flex;
+	font: 1em/1.5 sans-serif;
+	height: 111vh;
+	transition:
+		background-color var(--trans-dur),
+		color var(--trans-dur);
+} 
+.bike {
+	display: block;
+	margin: auto;
+	width: 16em;
+	height: auto;
+}
+.bike__body,
+.bike__front,
+.bike__handlebars,
+.bike__pedals,
+.bike__pedals-spin,
+.bike__seat,
+.bike__spokes,
+.bike__spokes-spin,
+.bike__tire {
+	animation: bikeBody 3s ease-in-out infinite;
+	stroke: var(--primary);
+	transition: stroke var(--trans-dur);
+}
+.bike__front {
+	animation-name: bikeFront;
+}
+.bike__handlebars {
+	animation-name: bikeHandlebars;
+}
+.bike__pedals {
+	animation-name: bikePedals;
+}
+.bike__pedals-spin {
+	animation-name: bikePedalsSpin;
+}
+.bike__seat {
+	animation-name: bikeSeat;
+}
+.bike__spokes,
+.bike__tire {
+	stroke: currentColor;
+}
+.bike__spokes {
+	animation-name: bikeSpokes;
+}
+.bike__spokes-spin {
+	animation-name: bikeSpokesSpin;
+}
+.bike__tire {
+	animation-name: bikeTire;
+}
+
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: hsl(var(--hue),90%,10%);
+		--fg: hsl(var(--hue),90%,90%);
+	}
+}
+
+
+@keyframes bikeBody {
+	from { stroke-dashoffset: 79; }
+	33%,
+	67% { stroke-dashoffset: 0; }
+	to { stroke-dashoffset: -79; }
+}
+@keyframes bikeFront {
+	from { stroke-dashoffset: 19; }
+	33%,
+	67% { stroke-dashoffset: 0; }
+	to { stroke-dashoffset: -19; }
+}
+@keyframes bikeHandlebars {
+	from { stroke-dashoffset: 10; }
+	33%,
+	67% { stroke-dashoffset: 0; }
+	to { stroke-dashoffset: -10; }
+}
+@keyframes bikePedals {
+	from {
+		animation-timing-function: ease-in;
+		stroke-dashoffset: -25.133;
+	}
+	33%,
+	67% {
+		animation-timing-function: ease-out;
+		stroke-dashoffset: -21.991;
+	}
+	to {
+		stroke-dashoffset: -25.133;
+	}
+}
+@keyframes bikePedalsSpin {
+	from { transform: rotate(0.1875turn); }
+	to { transform: rotate(3.1875turn); }
+}
+@keyframes bikeSeat {
+	from { stroke-dashoffset: 5; }
+	33%,
+	67% { stroke-dashoffset: 0; }
+	to { stroke-dashoffset: -5; }
+}
+@keyframes bikeSpokes {
+	from {
+		animation-timing-function: ease-in;
+		stroke-dashoffset: -31.416;
+	}
+	33%,
+	67% {
+		animation-timing-function: ease-out;
+		stroke-dashoffset: -23.562;
+	}
+	to {
+		stroke-dashoffset: -31.416;
+	}
+}
+@keyframes bikeSpokesSpin {
+	from { transform: rotate(0); }
+	to { transform: rotate(3turn); }
+}
+@keyframes bikeTire {
+	from {
+		animation-timing-function: ease-in;
+		stroke-dashoffset: 56.549;
+		transform: rotate(0);
+	}
+	33% {
+		stroke-dashoffset: 0;
+		transform: rotate(0.33turn);
+	}
+	67% {
+		animation-timing-function: ease-out;
+		stroke-dashoffset: 0;
+		transform: rotate(0.67turn);
+	}
+	to {
+		stroke-dashoffset: -56.549;
+		transform: rotate(1turn);
+	}
+}
+
+
+/* :root {
+  --r: 2.5em; /* outer radius of ring 
+  --b: calc(0.2 * var(--r)); 
+  --u: calc(0.5 * var(--b));
+  --t: 6s;
+  --e: cubic-bezier(.365, 0, .635, 1);
+}
+
+@property --p {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: true;
+}
+
+@property --r {
+  syntax: '<length-percentage>';
+  initial-value: 0px;
+  inherits: false;
+}
+
+@property --x {
+  syntax: '<length-percentage>';
+  initial-value: 0px;
+  inherits: false;
+}
+
+@property --y {
+  syntax: '<length-percentage>';
+  initial-value: 0px;
+  inherits: false;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  background: #171717;
+  font: 900 6em 'cousine';
+}
+
+.container::before {
+  content: '';
+  padding: calc(var(--r) + var(--b));
+  border-radius: var(--b);
+  box-shadow: 4px 4px 13px;
+  background: linear-gradient(-45deg, #3e1c33, #814623);
+  
+}
+
+.load {
+  counter-reset: p var(--p);
+  mix-blend-mode: lighten;
+  animation: p var(--t) linear infinite;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  background: linear-gradient(-45deg, #d196dd, #fd954e)
+
+}
+
+.load::before,
+.load::after {
+  background: linear-gradient(-45deg, #d196dd, #fd954e);
+}
+
+.load::before {
+  --x: var(--u);
+  --y: var(--u);
+  --r: calc(100% - var(--b)); 
+  --rond: red calc(var(--u) - 1px), transparent var(--u);
+  --mask: 
+    radial-gradient(circle at var(--x) var(--y), var(--rond)), 
+    radial-gradient(closest-side, transparent var(--r), red calc(var(--r) + 1px) calc(100% - 1px), transparent), 
+    conic-gradient(red calc(var(--p) * 1%), transparent 0%), 
+    radial-gradient(circle at 50% var(--u), var(--rond));
+  padding: var(--r); /* outer radius of ring 
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+  -webkit-mask-composite: source-over, source-in;
+          mask-composite: add, intersect;
+  animation: r var(--t) ease-out infinite, 
+             x calc(0.25 * var(--t)) var(--e) calc(-0.125 * var(--t)) infinite alternate, 
+             y calc(0.25 * var(--t)) var(--e) infinite alternate;
+  content: '';
+}
+
+.load::after {
+  place-items: center;
+  -webkit-background-clip: text;
+  color: transparent;
+  mix-blend-mode: difference;
+  content: counter(p) '%';
+}
+
+@keyframes p {
+  50%, 100% { --p: 100; }
+}
+
+@keyframes r {
+  0%, 50% { --r: calc(100% - var(--b)); }
+  75%, 100% { --r: -1px; }
+}
+
+@keyframes x {
+  100% { --x: calc(100% - var(--u)); }
+}
+
+@keyframes y {
+  100% { --y: calc(100% - var(--u)); }
+} */
