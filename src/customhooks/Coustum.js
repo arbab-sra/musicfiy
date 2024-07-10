@@ -25,7 +25,7 @@ export const UseNewReliseSong = async () => {
       },
     });
     if (data.status === 200) {
-      console.log(data.data);
+      // console.log(data.data);
       return data.data;
     }
   } catch (error) {

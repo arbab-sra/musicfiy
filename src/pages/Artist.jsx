@@ -13,7 +13,7 @@ const Artist = () => {
     <div className="ml-auto h-full mr-auto">
       <Artistcomponent/>
       <hr />
-      <Artistplylist/>
+      {/* <Artistplylist/> */}
       <hr />
       <Artists firstname="You also " lastname="like"/>
       <hr />

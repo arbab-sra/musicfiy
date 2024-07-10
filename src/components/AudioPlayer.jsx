@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import "../index.css";
 import { FaPlay } from "react-icons/fa";
 import { FaPause, FaShuffle } from "react-icons/fa6";
@@ -28,7 +28,8 @@ const AudioPlayer = () => {
   const { type, id } = useParams();
   const { weeklytop } = useContext(Allsong);
   const navigate = useNavigate();
-  const handlePlayPause = () => {
+  
+  const handlePlayPause = useCallback(() => {
     const audio = audioRef.current;
     if (isPlaying) {
       audio.pause();
@@ -36,8 +37,7 @@ const AudioPlayer = () => {
       audio.play();
     }
     setIsPlaying(!isPlaying);
-  };
-
+  }, [isPlaying]);
   const handleTimeUpdate = () => {
     const audio = audioRef.current;
     setCurrentTime(audio.currentTime);
@@ -64,16 +64,16 @@ const AudioPlayer = () => {
       setcurrentsongindex(currentsongindex + 1);
     }
   };
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     let next = othersong[currentsongindex + 1]._id;
     navigate(`/${type}/${next}`);
     setcurrentsongindex(currentsongindex + 1);
-  };
-  const handleback = () => {
+  }, [currentsongindex, navigate, othersong, setcurrentsongindex, type]);
+  const handleback = useCallback(() => {
     let next = othersong[currentsongindex - 1]._id;
     navigate(`/${type}/${next}`);
     setcurrentsongindex(currentsongindex - 1);
-  };
+  }, [currentsongindex, navigate, othersong, setcurrentsongindex, type]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -99,6 +99,48 @@ const AudioPlayer = () => {
   useEffect(() => {
     axios.get(`${BACKEND_URL}/api/songs/singlesong?id=${id}`);
   }, [id]);
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      const audio = audioRef.current;
+      switch (e.key) {
+        case 'p':
+          handlePlayPause();
+          break;
+        case 'ArrowRight':
+          audio.currentTime += 10;
+          break;
+        case 'ArrowLeft':
+          audio.currentTime -= 10;
+          break;
+        case 'AudioVolumeUp':
+          audio.volume = Math.min(1, audio.volume + 0.1);
+          break;
+        case 'AudioVolumeDown':
+          audio.volume = Math.max(0, audio.volume - 0.1);
+          break;
+        case ',':
+          handleback();
+          break;
+        case '.':
+          handleNext();
+          break;
+        case 's':
+          setallowshaffle((pre)=>!pre);
+          break
+        case 'Escape':
+          navigate("/");
+          break
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener("keyup", handleKeyPress);
+    return () => {
+      window.removeEventListener("keyup", handleKeyPress);
+    };
+  }, [isPlaying,handlePlayPause,handleback,handleNext, currentsongindex, othersong, Currentsongplay]);
+
   return (
     <>
       <div

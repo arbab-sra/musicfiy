@@ -43,7 +43,7 @@ const Album = ({
                 About
               </Link>
               <Link
-                to={"/contect"}
+                to={"/contact"}
                 className="transition-all ease-in text-white text-xl  hover:font-mono hover:text-[19px] hover:text-[#FF26C2]  "
               >
                 Contect
@@ -55,11 +55,11 @@ const Album = ({
                 Premium
               </Link>
               <Link to={"/profile"} className=" w-[35px] h-[35px]  ">
-                <img
+                {localStorage.getItem("profilpic") &&<img
                   className="object-cover rounded-full w-full -2 -[#FF26C2] h-full"
-                  src={image}
+                  src={localStorage.getItem("profilpic")}
                   alt=""
-                />
+                />}
               </Link>
             </div>
           </div>
