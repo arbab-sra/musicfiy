@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [islogin, setIslogin] = useState(false);
-  console.log(localStorage.getItem("profilpic"));
+  // console.log(localStorage.getItem("profilpic"));
   
 
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (user === new Date().toString() || user === null) {
-      console.log("time out");
+      // console.log("time out");
       localStorage.removeItem("user");
       setIslogin(false);
     } else {
       setIslogin(true);
-      console.log("time in");
+      // console.log("time in");
     }
   },[] );
 

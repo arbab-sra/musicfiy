@@ -48,7 +48,7 @@ const Signup = () => {
         localStorage.setItem("username", res.data.username);
         localStorage.setItem("profilpic", res.data.userpic);
         localStorage.setItem("token", res.data.token);
-        console.log(res);
+        // console.log(res);
         toast.success("Account created successfully");
         navigate("/");
       }
