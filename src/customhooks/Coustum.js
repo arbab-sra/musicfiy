@@ -95,12 +95,13 @@ export const UseMoodPlaylist = async () => {
 
 export const UseVideo = async () => {
   try {
-    const data = await axios.get(`${BACKEND_URL}/api/`, {
+    const data = await axios.get(`${BACKEND_URL}/api/songs/videosong`, {
       headers: {
         Authorization: `${localStorage.getItem("token")}`,
       },
     });
     if (data.status === 200) {
+      
       return data.data;
     }
   } catch (error) {

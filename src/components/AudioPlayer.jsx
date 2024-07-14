@@ -139,7 +139,7 @@ const AudioPlayer = () => {
     return () => {
       window.removeEventListener("keyup", handleKeyPress);
     };
-  }, [isPlaying,handlePlayPause,handleback,handleNext, currentsongindex, othersong, Currentsongplay]);
+  }, [isPlaying,handlePlayPause,handleback,navigate,handleNext, currentsongindex, othersong, Currentsongplay]);
 
   return (
     <>
@@ -150,7 +150,7 @@ const AudioPlayer = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="flex border backdrop:z-40 bg-opacity-[0.1] flex-col justify-center  h-[500px] mt-4 w-[1060px]   items-center  text-white p-4 rounded-lg shadow-lg "
+        className="flex border backdrop:z-40 bg-opacity-[0.1] flex-col justify-center mt-4 h-[500px]  w-[1060px]   items-center  text-white p-4 rounded-lg shadow-lg "
       >
         <div className="">
           <audio

@@ -12,7 +12,7 @@ import Joinplatform from "../components/Joinplatform";
 import { useEffect, useState } from "react";
 import "../index.css";
 import Popup from "../components/Popup";
-import Load from "./Load";
+
 const Home = () => {
   const [popup, setPopup] = useState(false);
   // const [isload, setisload] = useState(true);
@@ -30,13 +30,6 @@ const Home = () => {
     }
   });
 
-  // setTimeout(() => {
-  //   setisload(false);
-  // }, 3050);
-
-  // if (isload) {
-  //   return <Load />;
-  // }
   return (
     <div className="flex m-auto h-[4390px] min-w-[1400px] max-w-[1440px] overflow-x-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
       <div className="absolute  z-50   mt-[40vh] ml-[40vw]">

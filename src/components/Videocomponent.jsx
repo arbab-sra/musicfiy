@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
-const Videocomponent = ({ image, name, views, title }) => {
+
+const Videocomponent = ({ image, name, views, title, id }) => {
   return (
-    <Link className=" bg-[#1F1F1F] hover:shadow-md hover:shadow-purple-300 transition-all ease-in-out flex justify-center items-center gap-5">
+    <Link
+      to={`/video/${name}/${id}`}
+      className=" bg-[#1F1F1F] capitalize hover:shadow-md hover:shadow-purple-300 transition-all ml-auto mr-auto ease-in-out flex justify-center mt-6 items-center gap-4"
+    >
       <div className="w-[300px] h-[236px]   ">
         <div className="w-full h-[70%]  relative overflow-hidden">
           <div className="w-[80%]   z-50 absolute top-[40%] left-[10%] h-[50%] flex justify-center items-center ">
@@ -14,7 +19,7 @@ const Videocomponent = ({ image, name, views, title }) => {
           <img className="object-cover contrast-150 " src={image} alt="" />
         </div>
         <div className=" w-full h-[30%] flex justify-between items-center pl-4 pr-4 flex-col">
-          <div className=" w-full h-[60%]  flex justify-between items-center text-white whitespace-nowrap font-mono text-xl pl-4 pr-4 ">
+          <div className=" w-full h-[60%]  flex justify-between items-center overflow-hidden text-white whitespace-nowrap font-mono text-xl pl-4 pr-4 ">
             {title}
           </div>
           <div className=" w-full h-[40%] flex justify-between items-center pl-4 pr-4 ">
@@ -34,3 +39,10 @@ const Videocomponent = ({ image, name, views, title }) => {
 };
 
 export default Videocomponent;
+Videocomponent.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  views: PropTypes.number,
+  title: PropTypes.string,
+  id: PropTypes.string
+};
