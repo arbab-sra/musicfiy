@@ -24,10 +24,9 @@ const Videoplayer = () => {
           if (ele._id === id) {
             setcurrentvideourl(ele.videoSongUrl);
           }
-          
         });
     }
-  });
+  },[id,data]);
   useEffect(() => {
     window.scrollTo(0, 0);
   });
