@@ -21,13 +21,14 @@ const Album = () => {
       <div className="mt-5 flex  justify-between items-center">
         {data.length > 0
           ? data.map((ele, index) => {
+            // console.log(ele.songs[0].themnail);
               if (index < 5) {
                 return (
                   <Card
                     songid={ele.songs[0]._id}
                     key={index}
                     id={ele.songs[0].mood}
-                    image={image}
+                    image={ele.songs[0].themnail}
                     title={ele._id}
                     artist={ele._id}
                     type={"album"}

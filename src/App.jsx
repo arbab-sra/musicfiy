@@ -17,15 +17,7 @@ import Videoplayer from "./pages/Videoplay"
 const App = () => {
   
   const [isload, setisload] = useState(true);
-  useEffect(() => {
-    const zoomOut = () => {
-      document.body.style.zoom = "90%";
-    };
-    zoomOut();
-    return () => {
-      document.body.style.zoom = "100%";
-    };
-  }, []);
+  
   setTimeout(() => {
     setisload(false);
   }, 3050);

@@ -6,7 +6,7 @@ const Card = ({ image, icon, title, artist, id, type, songid = "" }) => {
       to={`/${type}/${id}/${songid}`}
       className="w-[180px] hover:shadow-sm hover:shadow-purple-500  m-2 p-1 flex flex-col justify-center items-center pt-4 h-full bg-[#1F1F1F] "
     >
-      <div className="w-[150px] h-[150px] border overflow-hidden  ">
+      <div className="w-[150px] h-[150px]  overflow-hidden  ">
         <img
           className=" object-fill overflow-hidden w-full h-full contrast-150"
           src={image}

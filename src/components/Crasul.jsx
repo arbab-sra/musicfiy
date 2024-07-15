@@ -1,25 +1,28 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import '../index.css'
-// Import Swiper styles
+import "../index.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import img from  '../assets/crasul.png'
-import img1 from '../assets/1.png'
-import img2 from '../assets/2.jpg'
-import img3 from '../assets/3.png'
-import img4 from '../assets/4.png'
-import img5 from '../assets/5.png'
 
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { useContext, useEffect, useState } from "react";
+import { Allsong } from "../constext/useContext";
 
+import {useNavigate} from "react-router-dom"
 const Crasul = () => {
+  const { Trandingsong } = useContext(Allsong);
+  const [data, setdata] = useState([]);
+  const navgate = useNavigate()
+  useEffect(() => {
+    if (Trandingsong.length > 0) {
+      setdata(Trandingsong);
+    }
+  }, [Trandingsong]);
   return (
     <div className="h-[400px] mt-4 mb-[50px] w-[1060px] overflow-x-hidden ">
-      <Swiper 
+      <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -33,15 +36,19 @@ const Crasul = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        
-        <SwiperSlide><img  className="contrast-150" src={img} alt="" /></SwiperSlide>
-        <SwiperSlide><img  className="contrast-150" src={img1} alt="" /></SwiperSlide>
-        <SwiperSlide><img className="contrast-150" src={img2} alt="" /></SwiperSlide>
-        <SwiperSlide><img className="contrast-150" src={img3} alt="" /></SwiperSlide>
-        <SwiperSlide><img className="contrast-150" src={img4} alt="" /></SwiperSlide>
-        <SwiperSlide><img className="contrast-150" src={img5} alt="" /></SwiperSlide>
-        
-        
+        {data &&
+          data.map((ele, index) => {
+            console.log(ele);
+            return (
+              <SwiperSlide onClick={() => (navgate(`/weeklytopsong/${ele._id}`))} key={ele._id}>
+                <img
+                  className="contrast-150"
+                  src={ele.themnail}
+                  alt=""
+                />
+              </SwiperSlide>
+            );
+          })}
       </Swiper>
     </div>
   );

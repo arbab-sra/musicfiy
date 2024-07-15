@@ -19,7 +19,7 @@ const Videocomponent = ({ image, name, views, title, id }) => {
               {name}
             </p>
           </div>
-          <img className="object-cover contrast-150 " src={image} alt="" />
+          <img className="object-cover w-full h-full contrast-150 " src={image} alt="" />
         </div>
         <div className=" w-full h-[30%] flex justify-between items-center pl-4 pr-4 flex-col">
           <marquee className=" w-full h-[60%]  flex justify-between items-center overflow-hidden text-white whitespace-nowrap font-mono text-xl pl-4 pr-4 ">

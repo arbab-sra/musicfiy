@@ -20,10 +20,11 @@ const Mood = () => {
           <div className="flex justify-center mt-6 items-center m-auto">
             {data.length > 0
               ? data.map((ele, index) => {
+                // console.log(ele);
                   let id = ele.songs[0]._id;
 
                   if (index < 5)
-                    return <Moodcomponet id={id} key={index} mood={ele.mood} />;
+                    return <Moodcomponet id={id} image={ele.songs[0].themnail} key={index} mood={ele.mood} />;
                 })
               : "no data"}
           </div>
