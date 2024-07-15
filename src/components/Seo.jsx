@@ -12,16 +12,14 @@ function MyComponent() {
   return (
     <div>
       <Helmet>
-        {/* Meta Tags */}
+        
         <title>Musicfy - Your Music Destination</title>
         <meta name="description" content="Discover and enjoy music on Musicfy. Explore new artists, albums, and playlists." />
-        
-        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
-      <h1>Hello, world!</h1>
+      <h1>Hello, world</h1>
     </div>
   );
 }
