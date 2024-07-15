@@ -1,17 +1,22 @@
-import React from 'react';
+
 import { Helmet } from 'react-helmet';
 
 function MyComponent() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "My Website",
-    "url": "http://mywebsite.com"
+    "name": "musicfy",
+    "url": "https://arbab.shop"
   };
 
   return (
     <div>
       <Helmet>
+        {/* Meta Tags */}
+        <title>Musicfy - Your Music Destination</title>
+        <meta name="description" content="Discover and enjoy music on Musicfy. Explore new artists, albums, and playlists." />
+        
+        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
@@ -20,4 +25,5 @@ function MyComponent() {
     </div>
   );
 }
-export default MyComponent
+
+export default MyComponent;
