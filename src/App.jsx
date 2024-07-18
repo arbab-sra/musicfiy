@@ -13,6 +13,7 @@ import Premium from "./pages/Premium";
 import About from "./pages/About";
 import Load from "./pages/Load";
 import Videoplayer from "./pages/Videoplay"
+import OtpVerification from "./components/authcomponts/Userveryfy";
 
 const App = () => {
   
@@ -20,7 +21,7 @@ const App = () => {
   
   setTimeout(() => {
     setisload(false);
-  }, 3050);
+  }, 2000);
 
   if (isload) {
     return <Load />;
@@ -34,6 +35,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/veryfy/account" element={<OtpVerification />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/albums" element={<Album />} />
           <Route path="/artists" element={<Artists />} />

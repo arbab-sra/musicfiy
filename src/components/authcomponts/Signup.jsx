@@ -47,10 +47,11 @@ const Signup = () => {
         localStorage.setItem("user", JSON.stringify(fifteenDaysAgo));
         localStorage.setItem("username", res.data.username);
         localStorage.setItem("profilpic", res.data.userpic);
-        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("email", res.data.email);
+        // localStorage.setItem("token", res.data.token);
         // console.log(res);
         toast.success("Account created successfully");
-        navigate("/");
+        navigate("/veryfy/account");
       }
     } catch (error) {
       setLoading(false);
@@ -121,7 +122,7 @@ const Signup = () => {
               type="submit"
               className="w-full h-12  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Sign Up
+              Veryfy Email
             </button>
             <Link to="/login" className="text-fuchsia-600 cursor-text text-sm">
               If you have an account?{" "}
