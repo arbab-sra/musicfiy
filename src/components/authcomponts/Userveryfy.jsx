@@ -68,12 +68,21 @@ const OtpVerification = () => {
           ))}
         </div>
         {error && <p className="text-red-500 mb-4">{error}</p>}
-        <button
+      <div className=" flex justify-between items-center ">
+      <button
           onClick={(e) => handleSubmit(e)}
-          className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+          className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
         >
           Verify OTP
         </button>
+        <button
+        disabled={true}
+          onClick={() => {console.log("object");}}
+          className="bg-gray-500 text-white py-2 px-4 rounded-lg  transition-all hover:cursor-not-allowed  hover:bg-gray-900"
+        >
+          Resend OTP
+        </button>
+      </div>
       </div>
     </div>
   );

@@ -38,7 +38,7 @@ const Crasul = () => {
       >
         {data &&
           data.map((ele, index) => {
-            console.log(ele);
+            // console.log(ele);
             return (
               <SwiperSlide onClick={() => (navgate(`/weeklytopsong/${ele._id}`))} key={ele._id}>
                 <img

@@ -8,7 +8,7 @@ import Login from "./components/authcomponts/Login";
 import { Toaster } from "react-hot-toast";
 import SongPlay from "./pages/SongPlay";
 import Contact from "./pages/Contect";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Premium from "./pages/Premium";
 import About from "./pages/About";
 import Load from "./pages/Load";
@@ -16,7 +16,7 @@ import Videoplayer from "./pages/Videoplay"
 import OtpVerification from "./components/authcomponts/Userveryfy";
 
 const App = () => {
-  
+
   const [isload, setisload] = useState(true);
   
   setTimeout(() => {
@@ -26,6 +26,7 @@ const App = () => {
   if (isload) {
     return <Load />;
   }
+  
   return (
     <>
       <div>
