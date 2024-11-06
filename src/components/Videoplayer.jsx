@@ -43,7 +43,7 @@ const Videoplayer = () => {
   }, [id]);
   return (
     <div className=" w-[1100px] mt-5">
-      <div className={`w-full h-[550px] shadow-2xl  `}>
+      <div className={`w-full h-[600px] shadow-2xl  `}>
         <ReactPlayer
           // style={{boxShadow:"white -2px 20px -30px"}}
           url={currentvideourl}
