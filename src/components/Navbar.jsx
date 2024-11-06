@@ -1,11 +1,34 @@
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BACKEND_URL } from "../../context";
 const Navbar = () => {
   const [islogin, setIslogin] = useState(false);
-  // console.log(localStorage.getItem("profilpic"));
-  
+  const navegate = useNavigate();
+  const [data, setdata] = useState([]);
+  const [query, setquery] = useState("");
+  const [show, setshow] = useState("false");
+
+  const serchhandler = async (event) => {
+    const res = await axios.get(
+      `${BACKEND_URL}/api/songs/allSongsearch?query=${query}`
+    );
+    setdata(res.data);
+    if (event.key === "Enter") {
+      navegate(
+        `${
+          res.data[0].songCategory === "audio" ? "newrelisesong" : "video/happy"
+        }/${res.data[0]._id}`
+      );
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      serchhandler();
+    }, 1500);
+  }, [query]);
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -17,17 +40,54 @@ const Navbar = () => {
       setIslogin(true);
       // console.log("time in");
     }
-  },[] );
+  }, []);
 
   return (
-    <div className="overflow-hidden h-[80px] p-3 bg-gradient-to-tr from-[#412C3A] to-[#533248] flex justify-center gap-1 items-center">
+    // <div className="w-[20%] h-[30%] absolute z-40 bg-red-600">
+    <div className=" min-h-[80px] border relative p-3 bg-gradient-to-tr from-[#412C3A] to-[#533248] flex justify-center gap-1 items-center ">
       <div className="search h-[30px] rounded-lg bg-[#656565] w-[360px]">
-        <div className="flex h-full w-full justify-center relative items-center">
+        <div className="flex h-full relative w-full justify-center  items-center">
+          <div
+            className={`absolute h-[200px] w-full  ${
+              show === "true" ? "block" : "hidden"
+            } rounded-lg translate-y-[130px] no-scrollbar text-white overflow-y-scroll z-50 bg-[#9ea19c79]`}
+          >
+            <ul className="px-3">
+              {data &&
+                data.map((item) => {
+                  const title =
+                    item.title.split(" ").splice(0, 4).join(" ") + "\n";
+                  return (
+                    <Link
+                      to={`/${
+                        item.songCategory === "audio"
+                          ? "newrelisesong"
+                          : "video/happy"
+                      }/${item._id}`}
+                      key={item._id}
+                      className="font-mono text-2xl h-[35px] border-black w-full overflow-hidden border-b-2 hover:text-[#FF26C2] "
+                    >
+                      {title}
+                    </Link>
+                  );
+                })}{" "}
+            </ul>
+          </div>
           <CiSearch size={"25px"} />
           <input
-            type="text"      
+            onFocus={() => {
+              setshow("true");
+            }}
+            type="text"
+            value={query}
+            onChange={(e) => {
+              setquery(e.target.value);
+            }}
+            onKeyUp={(event) => {
+              serchhandler(event);
+            }}
             placeholder="Search music, Artist, Album ..."
-            className="w-full bg-transparent p-2 h-full font-mono text-white"
+            className="w-full bg-transparent p-2 h-full font-mono text-blacke"
             name="search"
           />
         </div>
@@ -74,7 +134,7 @@ const Navbar = () => {
               className="w-[60px] h-[60px] overflow-hidden rounded-full object-cover"
               src={
                 localStorage.getItem("profilpic")
-                  ? (localStorage.getItem("profilpic"))
+                  ? localStorage.getItem("profilpic")
                   : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
               }
               alt=""
@@ -90,6 +150,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
+      {/* </div> */}
     </div>
   );
 };
