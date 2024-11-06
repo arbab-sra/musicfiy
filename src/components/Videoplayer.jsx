@@ -16,7 +16,7 @@ const Videoplayer = () => {
 
   const navgate = useNavigate();
   const handalendvideo = () => {
-    let random = Math.floor(Math.random() * 18);
+    let random = Math.floor(Math.random() * data.length);
     navgate(`/video/${data[random].mood}/${data[random]._id}`);
   };
 
@@ -42,8 +42,8 @@ const Videoplayer = () => {
     axios.get(`${BACKEND_URL}/api/songs/singlevideosong?id=${id}`);
   }, [id]);
   return (
-    <div className="h-[550px] w-[1100px] mt-5">
-      <div className={`w-full h-full shadow-2xl  `}>
+    <div className=" w-[1100px] mt-5">
+      <div className={`w-full h-[550px] shadow-2xl  `}>
         <ReactPlayer
           // style={{boxShadow:"white -2px 20px -30px"}}
           url={currentvideourl}
@@ -55,13 +55,13 @@ const Videoplayer = () => {
           controls
         />
       </div>
-      <div className="w-[1060px] h-[350px] mb-14 mt-[70px]">
+      <div className="w-[1060px]  mb-14 mt-[70px]">
         <Hadding name="Video" lastname="Song" />
         <div className=" mt-8  w-full flex justify-between  flex-wrap p-2 items-center m-auto">
           {data &&
-            data.map((ele, index) => {
-              if (index < 18) {
-                // console.log(ele.views);
+            data
+              .sort(() => 0.5 - Math.random())
+              .map((ele, index) => {
                 return (
                   <Videocomponent
                     id={ele._id}
@@ -72,8 +72,7 @@ const Videoplayer = () => {
                     title={ele.title}
                   />
                 );
-              }
-            })}
+              })}
 
           <div>
             <div>
