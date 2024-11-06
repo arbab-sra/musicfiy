@@ -1,4 +1,4 @@
-import image from "../assets/2.jpg";
+
 import Hadding from "./Hadding";
 import Card from "./Card";
 import { MdOutlineAlbum } from "react-icons/md";
@@ -20,7 +20,7 @@ const Album = () => {
       <Hadding name={"Album"} lastname={"List"} />
       <div className="mt-5 flex  justify-between items-center">
         {data.length > 0
-          ? data.map((ele, index) => {
+          ? data.sort(() => 0.5 - Math.random()).map((ele, index) => {
             // console.log(ele.songs[0].themnail);
               if (index < 5) {
                 return (

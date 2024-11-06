@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import Hadding from "./Hadding";
 import { FaCirclePlus } from "react-icons/fa6";
-import image from "../assets/5.png";
+
 import { IoMusicalNotesOutline } from "react-icons/io5";
 import { useContext, useEffect, useState } from "react";
 import { Allsong } from "../constext/useContext";
@@ -20,7 +20,7 @@ const Newrelises = () => {
           <Hadding name={"New Release"} lastname={"Song"} />
           <div className="flex mt-9 m-auto  mb-9 justify-center items-center w-full  h-[245px]  ">
             {songs.length>0 &&
-              songs.map((elem, index) => {
+              songs.sort(() => 0.5 - Math.random()).map((elem, index) => {
                  
                 if (index < 5) {
                   return (

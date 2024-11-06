@@ -18,18 +18,22 @@ const Video = () => {
       <Hadding name="Video" lastname="Song" />
       <div className=" mt-8  w-full flex justify-between p-2 items-center m-auto">
         {data &&
-          data.map((ele, index) => {
-            if(index<3){
-             return <Videocomponent
-              id={ele._id}
-              key={index}
-              image={ele.videwSongThemnail}
-              name={ele.mood}
-              views={ele.views}
-              title={ele.title}
-            />
-            }           
-})}
+          data
+            .sort(() => 0.5 - Math.random())
+            .map((ele, index) => {
+              if (index < 3) {
+                return (
+                  <Videocomponent
+                    id={ele._id}
+                    key={index}
+                    image={ele.videwSongThemnail}
+                    name={ele.mood}
+                    views={ele.views}
+                    title={ele.title}
+                  />
+                );
+              }
+            })}
 
         <div>
           <Link className="w-[85px] hover:text-purple-500 h-[90px] flex justify-center items-center flex-col   ">

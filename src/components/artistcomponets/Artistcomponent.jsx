@@ -124,7 +124,7 @@ const Artistcomponent = () => {
           </div>
         </div>
         {/* trandingcompont */}
-        {data.map((ele ,index) => {
+        {data.sort(() => 0.5 - Math.random()).map((ele ,index) => {
           // console.log(ele.songs[0]);
           let date = formatDate(ele.songs[0].releaseDate);
           // console.log(ele);

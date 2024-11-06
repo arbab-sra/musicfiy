@@ -1,6 +1,6 @@
 import Sidebar from "../components/Sidebar"
 import Artistcomponent from "../components/artistcomponets/Artistcomponent"
-import Artistplylist from "../components/artistcomponets/Artistplylist"
+
 import Artists from "../components/Artists"
 import Joinplatform from "../components/Joinplatform"
 const Artist = () => {

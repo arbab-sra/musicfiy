@@ -32,7 +32,7 @@ const Tranding = () => {
       </div>
       {/* trandingcompont */}
       {data.length > 0
-        ? data.map((ele, index) => {
+        ? data.sort(() => 0.5 - Math.random()).map((ele, index) => {
             const date = formatDate(ele.releaseDate);
             if (index < 7)
               return (

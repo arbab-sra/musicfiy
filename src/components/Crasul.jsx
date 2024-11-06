@@ -37,7 +37,7 @@ const Crasul = () => {
         className="mySwiper"
       >
         {data &&
-          data.map((ele, index) => {
+          data.sort(() => 0.5 - Math.random()).map((ele, ) => {
             // console.log(ele);
             return (
               <SwiperSlide onClick={() => (navgate(`/weeklytopsong/${ele._id}`))} key={ele._id}>

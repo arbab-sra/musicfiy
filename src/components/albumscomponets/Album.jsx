@@ -13,7 +13,6 @@ const Album = ({
   const [totlesong, settotalsong] = useState(0);
   const { Album } = useContext(Allsong);
   const [data, setdata] = useState([]);
-  const [playall, setplayall] = useState("/");
 
   useEffect(() => {
     settotalsong(Album.length);
@@ -55,11 +54,13 @@ const Album = ({
                 Premium
               </Link>
               <Link to={"/profile"} className=" w-[35px] h-[35px]  ">
-                {localStorage.getItem("profilpic") &&<img
-                  className="object-cover rounded-full w-full -2 -[#FF26C2] h-full"
-                  src={localStorage.getItem("profilpic")}
-                  alt=""
-                />}
+                {localStorage.getItem("profilpic") && (
+                  <img
+                    className="object-cover rounded-full w-full -2 -[#FF26C2] h-full"
+                    src={localStorage.getItem("profilpic")}
+                    alt=""
+                  />
+                )}
               </Link>
             </div>
           </div>
@@ -110,25 +111,32 @@ const Album = ({
         </div>
         {/* trandingcompont */}
         {data.length > 0
-          ? data.map((ele, index) => {
-              let date = formatDate(ele.songs[0].releaseDate);
-              // console.log(date);
-              if (index < 14){
-              return (
-                <Trandingcompont
-                  key={ele.songs[0]._id}
-                  id={ele.songs[0]._id}
-                  rank={index + 1}
-                  name={ele.songs[0].title}
-                  artistname={ele._id}
-                  relisedata={date}
-                  duration={ele.views >1000 ? (ele.views / 1000).toFixed(1) + "K" : ele.views}
-                  Album={ele.songs[0].title}
-                  tranding={ele.songs[0].themnail}
-                  type={"album"}
-                />
-              );}
-            })
+          ? data
+              .sort(() => 0.5 - Math.random())
+              .map((ele, index) => {
+                let date = formatDate(ele.songs[0].releaseDate);
+                // console.log(date);
+                if (index < 14) {
+                  return (
+                    <Trandingcompont
+                      key={ele.songs[0]._id}
+                      id={ele.songs[0]._id}
+                      rank={index + 1}
+                      name={ele.songs[0].title}
+                      artistname={ele._id}
+                      relisedata={date}
+                      duration={
+                        ele.views > 1000
+                          ? (ele.views / 1000).toFixed(1) + "K"
+                          : ele.views
+                      }
+                      Album={ele.songs[0].title}
+                      tranding={ele.songs[0].themnail}
+                      type={"album"}
+                    />
+                  );
+                }
+              })
           : "no data"}
         <div className="w-[216px] bg-[#3f303b] flex mb-10 transition-all ease-in-out  hover:shadow-pink-500 hover:shadow-md cursor-pointer hover:translate-x-[2px] gap-3 justify-center items-center rounded-lg m-4 ml-auto mt-7  mr-auto h-[63px]  ">
           <div className="text-white  text-2xl h-[38px]  flex justify-center items-center w-[26px]">

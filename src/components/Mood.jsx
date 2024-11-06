@@ -19,7 +19,7 @@ const Mood = () => {
         <div className="flex justify-between items-center">
           <div className="flex justify-center mt-6 items-center m-auto">
             {data.length > 0
-              ? data.map((ele, index) => {
+              ? data.sort(() => 0.5 - Math.random()).map((ele, index) => {
                 // console.log(ele);
                   let id = ele.songs[0]._id;
 
