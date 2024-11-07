@@ -15,7 +15,6 @@ const OtpVerification = () => {
       element.nextSibling.focus();
     }
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const otpValue = otp.join("");
@@ -44,7 +43,7 @@ const OtpVerification = () => {
       } catch (error) {
         console.log(error.message);
         toast.error(error.message);
-        localStorage.clear("email");
+        // localStorage.clear("email");
       }
     }
   };
@@ -68,21 +67,23 @@ const OtpVerification = () => {
           ))}
         </div>
         {error && <p className="text-red-500 mb-4">{error}</p>}
-      <div className=" flex justify-between items-center ">
-      <button
-          onClick={(e) => handleSubmit(e)}
-          className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-        >
-          Verify OTP
-        </button>
-        <button
-        disabled={true}
-          onClick={() => {console.log("object");}}
-          className="bg-gray-500 text-white py-2 px-4 rounded-lg  transition-all hover:cursor-not-allowed  hover:bg-gray-900"
-        >
-          Resend OTP
-        </button>
-      </div>
+        <div className=" flex justify-between items-center ">
+          <button
+            disabled={true}
+            onClick={() => {
+              console.log("object");
+            }}
+            className="bg-gray-500 text-white py-2 px-4 rounded-lg  transition-all hover:cursor-not-allowed  hover:bg-gray-900"
+          >
+            Resend OTP
+          </button>
+          <button
+            onClick={(e) => handleSubmit(e)}
+            className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+          >
+            Verify OTP
+          </button>
+        </div>
       </div>
     </div>
   );

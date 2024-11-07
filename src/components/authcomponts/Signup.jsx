@@ -48,8 +48,6 @@ const Signup = () => {
         localStorage.setItem("username", res.data.username);
         localStorage.setItem("profilpic", res.data.userpic);
         localStorage.setItem("email", res.data.email);
-        // localStorage.setItem("token", res.data.token);
-        // console.log(res);
         toast.success("Account created successfully");
         navigate("/veryfy/account");
       }

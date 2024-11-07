@@ -43,8 +43,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    // <div className="w-[20%] h-[30%] absolute z-40 bg-red-600">
-    <div className=" min-h-[80px] border relative p-3 bg-gradient-to-tr from-[#412C3A] to-[#533248] flex justify-center gap-1 items-center ">
+    <div className=" min-h-[80px] border-b-[2px] relative p-3 bg-gradient-to-tr from-[#412C3A] to-[#533248] flex justify-center gap-1 items-center ">
       <div className="search h-[30px] rounded-lg bg-[#656565] w-[360px]">
         <div className="flex h-full relative w-full justify-center  items-center">
           <div
