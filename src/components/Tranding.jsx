@@ -17,24 +17,14 @@ const Tranding = () => {
   }, [Trandingsong]);
 
   return (
-    <div className="w-[1060px]  ">
+    <div className="max-w-screen">
       <Hadding name={"Tranding"} lastname={"Song"} />
-      <div className=" dates w-[70%] h-[31px] ml-auto flex justify-between pl-8 pr-10  items-center">
-        <div>
-          <h4 className="font-sans text-white text-[15px]">Relises Date</h4>
-        </div>
-        <div>
-          <h4 className="font-sans text-white text-[15px]">Album </h4>
-        </div>
-        <div>
-          <h4 className="font-sans text-white text-[15px]">Views</h4>
-        </div>
-      </div>
+      
       {/* trandingcompont */}
       {data.length > 0
         ? data.sort(() => 0.5 - Math.random()).map((ele, index) => {
             const date = formatDate(ele.releaseDate);
-            if (index < 7)
+            
               return (
                 <Trandingcompont
                   key={ele._id}
@@ -51,7 +41,7 @@ const Tranding = () => {
               );
           })
         : "no data"}
-      <div className="w-[216px] bg-black flex mb-10 transition-all ease-in-out  hover:shadow-pink-500 hover:shadow-md cursor-pointer hover:translate-x-[2px] gap-3 justify-center items-center rounded-lg m-4 ml-auto mr-auto h-[63px]  ">
+      <div className=" bg-black flex mb-10 transition-all ease-in-out  hover:shadow-pink-500 hover:shadow-md cursor-pointer hover:translate-x-[2px] gap-3 justify-center items-center rounded-lg m-4 ml-auto mr-auto h-[63px]  ">
         <div className="text-white text-2xl h-[38px]  flex justify-center items-center w-[26px]">
           <strong>
             <IoAdd />

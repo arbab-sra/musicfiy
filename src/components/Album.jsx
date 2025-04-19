@@ -1,4 +1,3 @@
-
 import Hadding from "./Hadding";
 import Card from "./Card";
 import { MdOutlineAlbum } from "react-icons/md";
@@ -16,34 +15,33 @@ const Album = () => {
     }
   }, [Album]);
   return (
-    <div className="h-[330px] w-[1060px]  mb-14 overflow-hidden ">
+    <div className="h-[330px]  mb-14 overflow-x-scroll no-scrollbar ">
       <Hadding name={"Album"} lastname={"List"} />
-      <div className="mt-5 flex  justify-between items-center">
-        {data.length > 0
-          ? data.sort(() => 0.5 - Math.random()).map((ele, index) => {
-            // console.log(ele.songs[0].themnail);
-              if (index < 5) {
-                return (
-                  <Card
-                    songid={ele.songs[0]._id}
-                    key={index}
-                    id={ele.songs[0].mood}
-                    image={ele.songs[0].themnail}
-                    title={ele._id}
-                    artist={ele._id}
-                    type={"album"}
-                    icon={<MdOutlineAlbum color="steelblue" size={"18px"} />}
-                  />
-                );
-              }
-            })
-          : "no data"}
-        <div>
-          <Link className="w-[85px] h-[90px] hover:text-purple-500 flex justify-center items-center flex-col   ">
-            <FaCirclePlus size={"63px"} /> <h3>View All</h3>
-          </Link>
+      <marquee className="mt-5 flex justify-between items-center">
+        <div className="flex justify-center items-center">
+          {data.length > 0
+            ? data
+                .sort(() => 0.5 - Math.random())
+                .map((ele, index) => {
+                  // console.log(ele.songs[0].themnail);
+
+                  return (
+                    <Card
+                      songid={ele.songs[0]._id}
+                      key={index}
+                      id={ele.songs[0].mood}
+                      image={ele.songs[0].themnail}
+                      title={ele._id}
+                      artist={ele._id}
+                      type={"album"}
+                      icon={<MdOutlineAlbum color="steelblue" size={"18px"} />}
+                    />
+                  );
+                })
+            : "no data"}
         </div>
-      </div>
+        <div></div>
+      </marquee>
     </div>
   );
 };

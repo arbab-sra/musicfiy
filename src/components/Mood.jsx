@@ -16,7 +16,7 @@ const Mood = () => {
     <>
       <div className=" mt-14 mb-14 ">
         <Hadding name={"Mood"} lastname={"playlist"} />
-        <div className="flex justify-between items-center">
+        <marquee className="flex justify-between overflow-x-scroll no-scrollbar items-center">
           <div className="flex justify-center mt-6 items-center m-auto">
             {data.length > 0
               ? data.sort(() => 0.5 - Math.random()).map((ele, index) => {
@@ -28,10 +28,8 @@ const Mood = () => {
                 })
               : "no data"}
           </div>
-          <Link className="w-[85px] h-[90px] hover:text-purple-500 flex justify-center items-center flex-col   ">
-            <FaCirclePlus size={"63px"} /> <h3>View All</h3>
-          </Link>
-        </div>
+          
+        </marquee>
       </div>
     </>
   );

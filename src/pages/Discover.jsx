@@ -10,8 +10,8 @@ import WeeklyTopSong from "../components/Weeklytop";
 import JoinPlatform from "../components/Joinplatform";
 const Discover = () => {
   return (
-    <div className="flex m-auto h-[3750px] min-w-[1400px] max-w-[1440px] overflow-x-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
-      <div className="h-full">
+    <div className="flex m-auto h-auto overflow-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
+      <div className="h-auto bg-[#0E1920]">
         <Sidebar />
       </div>
 

@@ -5,7 +5,7 @@ import Artists from "../components/Artists"
 import Joinplatform from "../components/Joinplatform"
 const Artist = () => {
   return (
-    <div className="flex m-auto h-[3150px]  min-w-[1400px] max-w-[1440px] overflow-x-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
+    <div className="flex m-auto h-[3150px]  min-w-[1400px]  overflow-x-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
     <div className="h-full">
       <Sidebar/>
     </div>

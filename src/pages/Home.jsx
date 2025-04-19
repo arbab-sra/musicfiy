@@ -31,15 +31,15 @@ const Home = () => {
   });
 
   return (
-    <div className="flex m-auto h-[4390px] min-w-[1400px] max-w-[1440px] overflow-x-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
+    <div className="flex m-auto h-full overflow-y-hidden min-w-[500px] overflow-x-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
       <div className="absolute  z-50   mt-[40vh] ml-[40vw]">
         {popup && <Popup setPopup={setPopup} />}
       </div>
-      <div className="h-full">
+      <div className="h-auto bg-[#0E1920]">
         <Sidebar />
       </div>
 
-      <div className="ml-auto h-full mr-auto">
+      <div className="ml-auto h-full mr-auto w-[80%]">
         <Navbar />
         <hr />
         <Crasul />

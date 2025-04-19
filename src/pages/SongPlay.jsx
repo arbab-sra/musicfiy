@@ -7,12 +7,12 @@ import Joinplatform from "../components/Joinplatform";
 const SongPlay = () => {
 
   return (
-    <div className="flex m-auto min-h-[100vh] min-w-[1400px] max-w-[1440px] overflow-x-hidden  bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
-      <div className="h-full">
+    <div className="flex m-auto  overflow-hidden h-auto bg-gradient-to-tr from-[#412C3A] to-[#533248] ">
+      <div className="h-auto bg-[#0E1920]">
         <Sidebar />
       </div>
 
-      <div className="ml-auto h-full mr-auto">
+      <div className="ml-auto h-auto mr-auto">
         <AudioPlayer />
         <Joinplatform />
       </div>

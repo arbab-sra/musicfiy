@@ -43,8 +43,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className=" min-h-[80px] border-b-[2px] relative p-3 bg-gradient-to-tr from-[#412C3A] to-[#533248] flex justify-center gap-1 items-center ">
-      <div className="search h-[30px] rounded-lg bg-[#656565] w-[360px]">
+    <div className="w-full  border-b-[2px] relative p-3 bg-gradient-to-tr from-[#412C3A] to-[#533248] flex justify-evenly gap-1 items-center ">
+    
+        
+      <div className="search hidden md:block h-[30px] rounded-lg bg-[#656565] w-[30%]">
         <div className="flex h-full relative w-full justify-center  items-center">
           <div
             className={`absolute h-[200px] w-full  ${
@@ -91,7 +93,9 @@ const Navbar = () => {
           />
         </div>
       </div>
-      <div className="btn h-[38px] flex justify-center items-center w-[340px] gap-[46px]">
+
+
+      <div className="btn h-[38px] hidden lg:flex justify-center items-center w-[30%] gap-[20px] ">
         <Link
           to={"/about"}
           className="transition-all ease-in text-white text-xl hover:font-mono hover:text-xl hover:text-[#FF26C2]"
@@ -111,7 +115,9 @@ const Navbar = () => {
           Premium
         </Link>
       </div>
-      <div className="login h-[38px] flex justify-center items-center w-[300px] gap-[46px]">
+
+
+      <div className="login h-[38px] flex justify-center items-center w-[25%] gap-[38px]">
         {!islogin ? (
           <div className="login h-[38px] flex justify-center items-center w-[300px] gap-[46px]">
             <Link
@@ -149,8 +155,10 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      {/* </div> */}
-    </div>
+
+
+      </div>
+    
   );
 };
 

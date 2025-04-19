@@ -28,7 +28,7 @@ const AudioPlayer = () => {
   const { type, id } = useParams();
   const { weeklytop } = useContext(Allsong);
   const navigate = useNavigate();
-  
+
   const handlePlayPause = useCallback(() => {
     const audio = audioRef.current;
     if (isPlaying) {
@@ -54,12 +54,12 @@ const AudioPlayer = () => {
     if (allowshaffle) {
       const random = Math.floor(Math.random() * othersong.length);
       navigate(`/${type}/${othersong[random]._id}`);
-      setcurrentsongindex(random+1);
+      setcurrentsongindex(random + 1);
     } else {
       if (currentsongindex == othersong.length) {
         setcurrentsongindex(0);
       }
-      
+
       navigate(`/${type}/${othersong[currentsongindex + 1]._id}`);
       setcurrentsongindex(currentsongindex + 1);
     }
@@ -103,33 +103,33 @@ const AudioPlayer = () => {
     const handleKeyPress = (e) => {
       const audio = audioRef.current;
       switch (e.key) {
-        case 'p':
+        case "p":
           handlePlayPause();
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           audio.currentTime += 10;
           break;
-        case 'ArrowLeft':
+        case "ArrowLeft":
           audio.currentTime -= 10;
           break;
-        case 'AudioVolumeUp':
+        case "AudioVolumeUp":
           audio.volume = Math.min(1, audio.volume + 0.1);
           break;
-        case 'AudioVolumeDown':
+        case "AudioVolumeDown":
           audio.volume = Math.max(0, audio.volume - 0.1);
           break;
-        case ',':
+        case ",":
           handleback();
           break;
-        case '.':
+        case ".":
           handleNext();
           break;
-        case 's':
-          setallowshaffle((pre)=>!pre);
-          break
-        case 'Escape':
+        case "s":
+          setallowshaffle((pre) => !pre);
+          break;
+        case "Escape":
           navigate("/");
-          break
+          break;
         default:
           break;
       }
@@ -139,7 +139,16 @@ const AudioPlayer = () => {
     return () => {
       window.removeEventListener("keyup", handleKeyPress);
     };
-  }, [isPlaying,handlePlayPause,handleback,navigate,handleNext, currentsongindex, othersong, Currentsongplay]);
+  }, [
+    isPlaying,
+    handlePlayPause,
+    handleback,
+    navigate,
+    handleNext,
+    currentsongindex,
+    othersong,
+    Currentsongplay,
+  ]);
 
   return (
     <>
@@ -150,7 +159,7 @@ const AudioPlayer = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="flex backdrop:z-40 bg-opacity-[0.1] flex-col justify-center mt-4 h-[500px]  w-[1060px]   items-center  text-white p-4 rounded-lg shadow-lg "
+        className="flex backdrop:z-40 bg-opacity-[0.1] flex-col justify-center mt-4  mx-auto w-[90%]  overflow-hidden items-center  text-white p-4 rounded-lg shadow-lg "
       >
         <div className="">
           <audio
@@ -223,7 +232,7 @@ const AudioPlayer = () => {
             <FaShuffle color={allowshaffle ? "white" : "purple"} />
           </button>
           <button
-             onClick={handleback}
+            onClick={handleback}
             className=" hover:text-white text-fuchsia-700 text-2xl"
           >
             <FaStepBackward />
@@ -252,7 +261,7 @@ const AudioPlayer = () => {
           </button>
         </div>
       </div>
-      <div className="w-[1060px]  ">
+      <div className="w-[95%]">
         {type === "newrelisesong" && (
           <Hadding name={"New Relises "} lastname={"Song"} />
         )}
@@ -266,17 +275,7 @@ const AudioPlayer = () => {
           <Hadding name={"arijit_sigh "} lastname={"Song"} />
         )}
 
-        <div className=" dates w-[70%] h-[31px] ml-auto flex justify-between pl-8 pr-10  items-center">
-          <div>
-            <h4 className="font-sans text-white text-[15px]">Relises Date</h4>
-          </div>
-          <div>
-            <h4 className="font-sans text-white text-[15px]">Album </h4>
-          </div>
-          <div>
-            <h4 className="font-sans text-white text-[15px]">Views</h4>
-          </div>
-        </div>
+       
         {/* trandingcompont */}
         {othersong.length > 0 &&
           othersong.map((ele, index) => {
@@ -291,23 +290,17 @@ const AudioPlayer = () => {
                 name={ele.title}
                 artistname={ele.artist}
                 relisedata={date}
-                duration={ele.views >1000 ? (ele.views / 1000).toFixed(1) + "K" : ele.views}
+                duration={
+                  ele.views > 1000
+                    ? (ele.views / 1000).toFixed(1) + "K"
+                    : ele.views
+                }
                 Album={ele.title}
                 tranding={ele.themnail}
               />
             );
           })}
-        <div className="w-[216px] bg-black flex mb-10 transition-all ease-in-out  hover:shadow-pink-500 hover:shadow-md cursor-pointer hover:translate-x-[2px] gap-3 justify-center items-center rounded-lg m-4 ml-auto mr-auto h-[63px]  ">
-          <div className="text-white text-2xl h-[38px]  flex justify-center items-center w-[26px]">
-            <strong>
-              <IoAdd />
-            </strong>
-          </div>
-          <div className="text-white text-xl h-[38px]  flex justify-center items-center w-[88px]">
-            {" "}
-            <strong>View All</strong>
-          </div>
-        </div>
+     
       </div>
     </>
   );

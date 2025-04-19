@@ -21,7 +21,7 @@ const Crasul = () => {
     }
   }, [Trandingsong]);
   return (
-    <div className="h-[400px] mt-4 mb-[50px] w-[1060px] overflow-x-hidden ">
+    <div className="h-[600px] w-full mt-4 mb-[50px]  ">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

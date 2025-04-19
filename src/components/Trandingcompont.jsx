@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-const Trandingcompont = ({
+const   Trandingcompont = ({
   Album = "Album",
   duration = "Duration",
   name = "Tranding",
@@ -35,7 +35,7 @@ const Trandingcompont = ({
           <strong>{rank}</strong>
         </h2>
       </div>
-      <div style={ { border: play }} className={`w-[96%] flex bg-[#1E1E1E]  transition-all ease-in-out duration-75 hover:bg-[#e966c4] hover:shadow-lg rounded-md hover:shadow-[#c7abbf] justify-between items-center h-full `}>
+      <div style={ { border: play }} className={`flex bg-[#1E1E1E]  transition-all ease-in-out duration-75 hover:bg-[#e966c4] hover:shadow-lg rounded-md hover:shadow-[#c7abbf] justify-between items-center h-full `}>
         <div className="w-[8%]  overflow-hidden  h-full bg-black ">
           <img src={tranding} width={"100%"} height={"100%"} alt="" />
         </div>

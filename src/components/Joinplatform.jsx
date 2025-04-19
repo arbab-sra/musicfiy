@@ -5,7 +5,7 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
 const Joinplatform = () => {
   return (
-    <div className="w-[1050px] h-[500px] mt-12     ">
+    <div className="h-[500px] mt-12     ">
       <div className=" w-full h-[40%] mb-3">
         <div className="  w-full h-[30%] flex justify-center flex-col  items-center ">
           {" "}
