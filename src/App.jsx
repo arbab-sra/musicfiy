@@ -21,7 +21,7 @@ const App = () => {
   
   setTimeout(() => {
     setisload(false);
-  }, 1000);
+  }, 100);
 
   if (isload) {
     return <Load />;
