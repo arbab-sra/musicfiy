@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://arbab.shop.com/sitemap.xml
+Sitemap: https://arbab.fun.com/sitemap.xml
+
