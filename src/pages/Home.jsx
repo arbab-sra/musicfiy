@@ -46,7 +46,7 @@ const Home = () => {
         <hr />
         <Weeklytop firsthadding="Weekly" secondhadding="Top" />
         <hr />
-        <Newrelises />
+        <Video />
         <hr />
         <Tranding />
         <hr />
@@ -54,7 +54,7 @@ const Home = () => {
         <hr />
         <Album />
         <hr />
-        <Video />
+        <Newrelises />
         <hr />
         <Mood />
         <hr />
@@ -66,3 +66,4 @@ const Home = () => {
 };
 
 export default Home;
+
