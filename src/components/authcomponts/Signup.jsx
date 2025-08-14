@@ -71,6 +71,8 @@ const Signup = () => {
     return <Lodingcomponet />;
   }
   return (
+    <>
+      <div class="visme_d" data-title="Content Access Form" data-url="g0o9ovq6-untitled-project?fullPage=true" data-domain="forms" data-full-page="true" data-min-height="100vh" data-form-id="140839"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
     <div className="h-96 flex items-between justify-center pt-9">
       <div className="relative mt-auto">
         <div className="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg animate-pulse" />
@@ -129,8 +131,9 @@ const Signup = () => {
           </form>
         </div>
       </div>
-    </div>
+    </div></>
   );
 };
 
 export default Signup;
+
