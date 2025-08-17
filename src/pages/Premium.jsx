@@ -2,7 +2,7 @@ import "./premium.css"
 
 const Premium = () => {
   return (
-    <div className='parent'>
+    <div className='parent min-h-screen'>
 <section className="pricing-plans">
       <div className="pricing-card basic">
         <div className="heading">
@@ -153,3 +153,4 @@ const Premium = () => {
 
 
 export default Premium
+
