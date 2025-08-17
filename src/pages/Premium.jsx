@@ -144,8 +144,12 @@ const Premium = () => {
         <button className="cta-btn">SELECT</button>
       </div>
     </section>
+      <div className ="w-[100px] h-[100px] ">
+     <img src='https://res.cloudinary.com/duns099gs/image/upload/v1755407058/profilepicture/Screenshot_2025-08-17_at_10.34.10_AM_wnuh8u.png' alt="BigCo Inc. logo" className="w-full h-full" />
+      </div>
     </div>
   )
 }
+
 
 export default Premium
